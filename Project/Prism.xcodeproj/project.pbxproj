@@ -1,0 +1,765 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0660DB8824361C1A00002287 /* CGContext+RoundedRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 0660DB8624361C1A00002287 /* CGContext+RoundedRect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0660DB8924361C1A00002287 /* CGContext+RoundedRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 0660DB8724361C1A00002287 /* CGContext+RoundedRect.m */; };
+		0660DB9D2438CF0200002287 /* libxcselect.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660DB9C2438CF0200002287 /* libxcselect.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0669B7EF242E28CE00F4111E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0669B7EE242E28CE00F4111E /* AppDelegate.m */; };
+		0669B7F2242E28CE00F4111E /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 0669B7F1242E28CE00F4111E /* Document.m */; };
+		0669B7F5242E28CE00F4111E /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0669B7F3242E28CE00F4111E /* Document.xib */; };
+		0669B7F7242E28D000F4111E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0669B7F6242E28D000F4111E /* Assets.xcassets */; };
+		0669B7FA242E28D000F4111E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0669B7F8242E28D000F4111E /* MainMenu.xib */; };
+		0669B7FD242E28D000F4111E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0669B7FC242E28D000F4111E /* main.m */; };
+		0669B80B242E31FA00F4111E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0669B80A242E31FA00F4111E /* main.m */; };
+		0669B818242E3E5B00F4111E /* PrismCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 0669B816242E3E5B00F4111E /* PrismCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0669B81B242E3E5B00F4111E /* PrismCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0669B814242E3E5B00F4111E /* PrismCommon.framework */; };
+		0669B81C242E3E5B00F4111E /* PrismCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0669B814242E3E5B00F4111E /* PrismCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0669B822242E3E8000F4111E /* PrismCommonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0669B821242E3E8000F4111E /* PrismCommonUtilities.m */; };
+		0669B826242E3EAA00F4111E /* PrismCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0669B814242E3E5B00F4111E /* PrismCommon.framework */; };
+		067F4832242E76C2004D7928 /* PrismCLI in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0669B808242E31FA00F4111E /* PrismCLI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		067F483D242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4833242E7A8C004D7928 /* NSArray+LongestCommonSubsequence.m */; };
+		067F483E242E7A8D004D7928 /* NSString+ComposedCharacterSequences.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4834242E7A8C004D7928 /* NSString+ComposedCharacterSequences.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F483F242E7A8D004D7928 /* NSFileManager+DirectoryContents.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4835242E7A8C004D7928 /* NSFileManager+DirectoryContents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4840242E7A8D004D7928 /* NSTask+Execution.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4836242E7A8C004D7928 /* NSTask+Execution.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4841242E7A8D004D7928 /* UTType+ObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4837242E7A8C004D7928 /* UTType+ObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4842242E7A8D004D7928 /* NSTask+Execution.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4838242E7A8C004D7928 /* NSTask+Execution.m */; };
+		067F4843242E7A8D004D7928 /* UTType+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4839242E7A8C004D7928 /* UTType+ObjC.m */; };
+		067F4844242E7A8D004D7928 /* NSFileManager+DirectoryContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F483A242E7A8C004D7928 /* NSFileManager+DirectoryContents.m */; };
+		067F4845242E7A8D004D7928 /* NSString+ComposedCharacterSequences.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F483B242E7A8C004D7928 /* NSString+ComposedCharacterSequences.m */; };
+		067F4846242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F483C242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4849242E845A004D7928 /* DocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4848242E845A004D7928 /* DocumentController.m */; };
+		067F4AD0242FDDBD004D7928 /* prism.js in Resources */ = {isa = PBXBuildFile; fileRef = 067F4ACF242FDDBD004D7928 /* prism.js */; };
+		067F4AD3242FDDF6004D7928 /* Prism.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4AD1242FDDF5004D7928 /* Prism.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4AD4242FDDF6004D7928 /* Prism.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4AD2242FDDF6004D7928 /* Prism.m */; };
+		067F4ADB2430B3FC004D7928 /* NSColor+Adjustment.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4AD92430B3FC004D7928 /* NSColor+Adjustment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4ADC2430B3FC004D7928 /* NSColor+Adjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4ADA2430B3FC004D7928 /* NSColor+Adjustment.m */; };
+		067F4ADF243115C1004D7928 /* NSColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4ADD243115C1004D7928 /* NSColor+Hex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4AE0243115C1004D7928 /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4ADE243115C1004D7928 /* NSColor+Hex.m */; };
+		067F4AE3243217ED004D7928 /* NSColor+XCColorTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4AE1243217ED004D7928 /* NSColor+XCColorTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4AE4243217ED004D7928 /* NSColor+XCColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4AE2243217ED004D7928 /* NSColor+XCColorTheme.m */; };
+		067F4AF32432711F004D7928 /* PrismCommonUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4AF2243270E4004D7928 /* PrismCommonUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4AF624336031004D7928 /* LayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4AF524336031004D7928 /* LayoutManager.m */; };
+		067F4B052434AA65004D7928 /* NSCoder+Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4B032434AA65004D7928 /* NSCoder+Property.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		067F4B062434AA65004D7928 /* NSCoder+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4B042434AA65004D7928 /* NSCoder+Property.m */; };
+		06A28F082434D64800026539 /* NSPopUpButton+RepresentedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 06A28F062434D64800026539 /* NSPopUpButton+RepresentedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06A28F092434D64800026539 /* NSPopUpButton+RepresentedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0669B819242E3E5B00F4111E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0669B7E2242E28CE00F4111E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0669B813242E3E5B00F4111E;
+			remoteInfo = PrismCommon;
+		};
+		0669B823242E3EA700F4111E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0669B7E2242E28CE00F4111E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0669B813242E3E5B00F4111E;
+			remoteInfo = PrismCommon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0669B806242E31FA00F4111E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		0669B820242E3E5B00F4111E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0669B81C242E3E5B00F4111E /* PrismCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		067F4831242E76BD004D7928 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				067F4832242E76C2004D7928 /* PrismCLI in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0660DB8624361C1A00002287 /* CGContext+RoundedRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGContext+RoundedRect.h"; sourceTree = "<group>"; };
+		0660DB8724361C1A00002287 /* CGContext+RoundedRect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CGContext+RoundedRect.m"; sourceTree = "<group>"; };
+		0660DB9C2438CF0200002287 /* libxcselect.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxcselect.dylib; path = ../../../usr/lib/libxcselect.dylib; sourceTree = "<group>"; };
+		0669B7EA242E28CE00F4111E /* Prism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prism.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0669B7ED242E28CE00F4111E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0669B7EE242E28CE00F4111E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0669B7F0242E28CE00F4111E /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		0669B7F1242E28CE00F4111E /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
+		0669B7F4242E28CE00F4111E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
+		0669B7F6242E28D000F4111E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0669B7F9242E28D000F4111E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0669B7FB242E28D000F4111E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0669B7FC242E28D000F4111E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0669B7FE242E28D000F4111E /* Prism.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prism.entitlements; sourceTree = "<group>"; };
+		0669B808242E31FA00F4111E /* PrismCLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PrismCLI; sourceTree = BUILT_PRODUCTS_DIR; };
+		0669B80A242E31FA00F4111E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0669B814242E3E5B00F4111E /* PrismCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrismCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0669B816242E3E5B00F4111E /* PrismCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrismCommon.h; sourceTree = "<group>"; };
+		0669B817242E3E5B00F4111E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0669B821242E3E8000F4111E /* PrismCommonUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrismCommonUtilities.m; sourceTree = "<group>"; };
+		067F4833242E7A8C004D7928 /* NSArray+LongestCommonSubsequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LongestCommonSubsequence.m"; sourceTree = "<group>"; };
+		067F4834242E7A8C004D7928 /* NSString+ComposedCharacterSequences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ComposedCharacterSequences.h"; sourceTree = "<group>"; };
+		067F4835242E7A8C004D7928 /* NSFileManager+DirectoryContents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryContents.h"; sourceTree = "<group>"; };
+		067F4836242E7A8C004D7928 /* NSTask+Execution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+Execution.h"; sourceTree = "<group>"; };
+		067F4837242E7A8C004D7928 /* UTType+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UTType+ObjC.h"; sourceTree = "<group>"; };
+		067F4838242E7A8C004D7928 /* NSTask+Execution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+Execution.m"; sourceTree = "<group>"; };
+		067F4839242E7A8C004D7928 /* UTType+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UTType+ObjC.m"; sourceTree = "<group>"; };
+		067F483A242E7A8C004D7928 /* NSFileManager+DirectoryContents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryContents.m"; sourceTree = "<group>"; };
+		067F483B242E7A8C004D7928 /* NSString+ComposedCharacterSequences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ComposedCharacterSequences.m"; sourceTree = "<group>"; };
+		067F483C242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LongestCommonSubsequence.h"; sourceTree = "<group>"; };
+		067F4847242E845A004D7928 /* DocumentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentController.h; sourceTree = "<group>"; };
+		067F4848242E845A004D7928 /* DocumentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentController.m; sourceTree = "<group>"; };
+		067F4ACF242FDDBD004D7928 /* prism.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = prism.js; sourceTree = "<group>"; };
+		067F4AD1242FDDF5004D7928 /* Prism.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prism.h; sourceTree = "<group>"; };
+		067F4AD2242FDDF6004D7928 /* Prism.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Prism.m; sourceTree = "<group>"; };
+		067F4AD92430B3FC004D7928 /* NSColor+Adjustment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+Adjustment.h"; sourceTree = "<group>"; };
+		067F4ADA2430B3FC004D7928 /* NSColor+Adjustment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Adjustment.m"; sourceTree = "<group>"; };
+		067F4ADD243115C1004D7928 /* NSColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
+		067F4ADE243115C1004D7928 /* NSColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
+		067F4AE1243217ED004D7928 /* NSColor+XCColorTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+XCColorTheme.h"; sourceTree = "<group>"; };
+		067F4AE2243217ED004D7928 /* NSColor+XCColorTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+XCColorTheme.m"; sourceTree = "<group>"; };
+		067F4AF2243270E4004D7928 /* PrismCommonUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrismCommonUtilities.h; sourceTree = "<group>"; };
+		067F4AF424336031004D7928 /* LayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayoutManager.h; sourceTree = "<group>"; };
+		067F4AF524336031004D7928 /* LayoutManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayoutManager.m; sourceTree = "<group>"; };
+		067F4B032434AA65004D7928 /* NSCoder+Property.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSCoder+Property.h"; sourceTree = "<group>"; };
+		067F4B042434AA65004D7928 /* NSCoder+Property.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCoder+Property.m"; sourceTree = "<group>"; };
+		06A28F062434D64800026539 /* NSPopUpButton+RepresentedObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSPopUpButton+RepresentedObject.h"; sourceTree = "<group>"; };
+		06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSPopUpButton+RepresentedObject.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0669B7E7242E28CE00F4111E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0660DB9D2438CF0200002287 /* libxcselect.dylib in Frameworks */,
+				0669B81B242E3E5B00F4111E /* PrismCommon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0669B805242E31FA00F4111E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0669B826242E3EAA00F4111E /* PrismCommon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0669B811242E3E5B00F4111E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0669B7E1242E28CE00F4111E = {
+			isa = PBXGroup;
+			children = (
+				0669B7EC242E28CE00F4111E /* Prism */,
+				0669B809242E31FA00F4111E /* PrismCLI */,
+				0669B815242E3E5B00F4111E /* PrismCommon */,
+				0669B7EB242E28CE00F4111E /* Products */,
+				0669B825242E3EAA00F4111E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0669B7EB242E28CE00F4111E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0669B7EA242E28CE00F4111E /* Prism.app */,
+				0669B808242E31FA00F4111E /* PrismCLI */,
+				0669B814242E3E5B00F4111E /* PrismCommon.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0669B7EC242E28CE00F4111E /* Prism */ = {
+			isa = PBXGroup;
+			children = (
+				0669B7ED242E28CE00F4111E /* AppDelegate.h */,
+				0669B7EE242E28CE00F4111E /* AppDelegate.m */,
+				067F4847242E845A004D7928 /* DocumentController.h */,
+				067F4848242E845A004D7928 /* DocumentController.m */,
+				0669B7F0242E28CE00F4111E /* Document.h */,
+				0669B7F1242E28CE00F4111E /* Document.m */,
+				067F4AF424336031004D7928 /* LayoutManager.h */,
+				067F4AF524336031004D7928 /* LayoutManager.m */,
+				0669B7F3242E28CE00F4111E /* Document.xib */,
+				0669B7F6242E28D000F4111E /* Assets.xcassets */,
+				0669B7F8242E28D000F4111E /* MainMenu.xib */,
+				0669B7FB242E28D000F4111E /* Info.plist */,
+				0669B7FC242E28D000F4111E /* main.m */,
+				0669B7FE242E28D000F4111E /* Prism.entitlements */,
+			);
+			path = Prism;
+			sourceTree = "<group>";
+		};
+		0669B809242E31FA00F4111E /* PrismCLI */ = {
+			isa = PBXGroup;
+			children = (
+				0669B80A242E31FA00F4111E /* main.m */,
+			);
+			path = PrismCLI;
+			sourceTree = "<group>";
+		};
+		0669B815242E3E5B00F4111E /* PrismCommon */ = {
+			isa = PBXGroup;
+			children = (
+				0669B816242E3E5B00F4111E /* PrismCommon.h */,
+				067F4AF2243270E4004D7928 /* PrismCommonUtilities.h */,
+				0669B821242E3E8000F4111E /* PrismCommonUtilities.m */,
+				067F483C242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.h */,
+				067F4833242E7A8C004D7928 /* NSArray+LongestCommonSubsequence.m */,
+				067F4835242E7A8C004D7928 /* NSFileManager+DirectoryContents.h */,
+				067F483A242E7A8C004D7928 /* NSFileManager+DirectoryContents.m */,
+				067F4834242E7A8C004D7928 /* NSString+ComposedCharacterSequences.h */,
+				067F483B242E7A8C004D7928 /* NSString+ComposedCharacterSequences.m */,
+				067F4AD92430B3FC004D7928 /* NSColor+Adjustment.h */,
+				067F4ADA2430B3FC004D7928 /* NSColor+Adjustment.m */,
+				067F4ADD243115C1004D7928 /* NSColor+Hex.h */,
+				067F4ADE243115C1004D7928 /* NSColor+Hex.m */,
+				067F4AE1243217ED004D7928 /* NSColor+XCColorTheme.h */,
+				067F4AE2243217ED004D7928 /* NSColor+XCColorTheme.m */,
+				067F4836242E7A8C004D7928 /* NSTask+Execution.h */,
+				067F4838242E7A8C004D7928 /* NSTask+Execution.m */,
+				067F4837242E7A8C004D7928 /* UTType+ObjC.h */,
+				067F4839242E7A8C004D7928 /* UTType+ObjC.m */,
+				067F4B032434AA65004D7928 /* NSCoder+Property.h */,
+				067F4B042434AA65004D7928 /* NSCoder+Property.m */,
+				06A28F062434D64800026539 /* NSPopUpButton+RepresentedObject.h */,
+				06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */,
+				0660DB8624361C1A00002287 /* CGContext+RoundedRect.h */,
+				0660DB8724361C1A00002287 /* CGContext+RoundedRect.m */,
+				067F4AD1242FDDF5004D7928 /* Prism.h */,
+				067F4AD2242FDDF6004D7928 /* Prism.m */,
+				067F4ACF242FDDBD004D7928 /* prism.js */,
+				0669B817242E3E5B00F4111E /* Info.plist */,
+			);
+			path = PrismCommon;
+			sourceTree = "<group>";
+		};
+		0669B825242E3EAA00F4111E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0660DB9C2438CF0200002287 /* libxcselect.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0669B80F242E3E5B00F4111E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0669B818242E3E5B00F4111E /* PrismCommon.h in Headers */,
+				067F4846242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.h in Headers */,
+				067F4841242E7A8D004D7928 /* UTType+ObjC.h in Headers */,
+				067F483F242E7A8D004D7928 /* NSFileManager+DirectoryContents.h in Headers */,
+				0660DB8824361C1A00002287 /* CGContext+RoundedRect.h in Headers */,
+				06A28F082434D64800026539 /* NSPopUpButton+RepresentedObject.h in Headers */,
+				067F4ADB2430B3FC004D7928 /* NSColor+Adjustment.h in Headers */,
+				067F4AD3242FDDF6004D7928 /* Prism.h in Headers */,
+				067F4AE3243217ED004D7928 /* NSColor+XCColorTheme.h in Headers */,
+				067F483E242E7A8D004D7928 /* NSString+ComposedCharacterSequences.h in Headers */,
+				067F4ADF243115C1004D7928 /* NSColor+Hex.h in Headers */,
+				067F4840242E7A8D004D7928 /* NSTask+Execution.h in Headers */,
+				067F4B052434AA65004D7928 /* NSCoder+Property.h in Headers */,
+				067F4AF32432711F004D7928 /* PrismCommonUtilities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0669B7E9242E28CE00F4111E /* Prism */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0669B801242E28D000F4111E /* Build configuration list for PBXNativeTarget "Prism" */;
+			buildPhases = (
+				0669B7E6242E28CE00F4111E /* Sources */,
+				0669B7E7242E28CE00F4111E /* Frameworks */,
+				0669B7E8242E28CE00F4111E /* Resources */,
+				0669B820242E3E5B00F4111E /* Embed Frameworks */,
+				067F4831242E76BD004D7928 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0669B81A242E3E5B00F4111E /* PBXTargetDependency */,
+			);
+			name = Prism;
+			productName = Prism;
+			productReference = 0669B7EA242E28CE00F4111E /* Prism.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0669B807242E31FA00F4111E /* PrismCLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0669B80C242E31FA00F4111E /* Build configuration list for PBXNativeTarget "PrismCLI" */;
+			buildPhases = (
+				0669B804242E31FA00F4111E /* Sources */,
+				0669B805242E31FA00F4111E /* Frameworks */,
+				0669B806242E31FA00F4111E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0669B824242E3EA700F4111E /* PBXTargetDependency */,
+			);
+			name = PrismCLI;
+			productName = PrismCLI;
+			productReference = 0669B808242E31FA00F4111E /* PrismCLI */;
+			productType = "com.apple.product-type.tool";
+		};
+		0669B813242E3E5B00F4111E /* PrismCommon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0669B81D242E3E5B00F4111E /* Build configuration list for PBXNativeTarget "PrismCommon" */;
+			buildPhases = (
+				0669B80F242E3E5B00F4111E /* Headers */,
+				0669B810242E3E5B00F4111E /* Sources */,
+				0669B811242E3E5B00F4111E /* Frameworks */,
+				0669B812242E3E5B00F4111E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrismCommon;
+			productName = PrismCommon;
+			productReference = 0669B814242E3E5B00F4111E /* PrismCommon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0669B7E2242E28CE00F4111E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "John Scott";
+				TargetAttributes = {
+					0669B7E9242E28CE00F4111E = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					0669B807242E31FA00F4111E = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					0669B813242E3E5B00F4111E = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 0669B7E5242E28CE00F4111E /* Build configuration list for PBXProject "Prism" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0669B7E1242E28CE00F4111E;
+			productRefGroup = 0669B7EB242E28CE00F4111E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0669B7E9242E28CE00F4111E /* Prism */,
+				0669B807242E31FA00F4111E /* PrismCLI */,
+				0669B813242E3E5B00F4111E /* PrismCommon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0669B7E8242E28CE00F4111E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0669B7F7242E28D000F4111E /* Assets.xcassets in Resources */,
+				0669B7F5242E28CE00F4111E /* Document.xib in Resources */,
+				0669B7FA242E28D000F4111E /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0669B812242E3E5B00F4111E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				067F4AD0242FDDBD004D7928 /* prism.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0669B7E6242E28CE00F4111E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0669B7F2242E28CE00F4111E /* Document.m in Sources */,
+				0669B7FD242E28D000F4111E /* main.m in Sources */,
+				067F4AF624336031004D7928 /* LayoutManager.m in Sources */,
+				067F4849242E845A004D7928 /* DocumentController.m in Sources */,
+				0669B7EF242E28CE00F4111E /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0669B804242E31FA00F4111E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0669B80B242E31FA00F4111E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0669B810242E3E5B00F4111E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				067F4843242E7A8D004D7928 /* UTType+ObjC.m in Sources */,
+				067F4AE4243217ED004D7928 /* NSColor+XCColorTheme.m in Sources */,
+				067F4ADC2430B3FC004D7928 /* NSColor+Adjustment.m in Sources */,
+				067F4842242E7A8D004D7928 /* NSTask+Execution.m in Sources */,
+				0660DB8924361C1A00002287 /* CGContext+RoundedRect.m in Sources */,
+				067F4845242E7A8D004D7928 /* NSString+ComposedCharacterSequences.m in Sources */,
+				067F4B062434AA65004D7928 /* NSCoder+Property.m in Sources */,
+				067F4AE0243115C1004D7928 /* NSColor+Hex.m in Sources */,
+				067F4844242E7A8D004D7928 /* NSFileManager+DirectoryContents.m in Sources */,
+				06A28F092434D64800026539 /* NSPopUpButton+RepresentedObject.m in Sources */,
+				067F483D242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.m in Sources */,
+				067F4AD4242FDDF6004D7928 /* Prism.m in Sources */,
+				0669B822242E3E8000F4111E /* PrismCommonUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0669B81A242E3E5B00F4111E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0669B813242E3E5B00F4111E /* PrismCommon */;
+			targetProxy = 0669B819242E3E5B00F4111E /* PBXContainerItemProxy */;
+		};
+		0669B824242E3EA700F4111E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0669B813242E3E5B00F4111E /* PrismCommon */;
+			targetProxy = 0669B823242E3EA700F4111E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0669B7F3242E28CE00F4111E /* Document.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0669B7F4242E28CE00F4111E /* Base */,
+			);
+			name = Document.xib;
+			sourceTree = "<group>";
+		};
+		0669B7F8242E28D000F4111E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0669B7F9242E28D000F4111E /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0669B7FF242E28D000F4111E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0669B800242E28D000F4111E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0669B802242E28D000F4111E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 38SSXVJ676;
+				INFOPLIST_FILE = Prism/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjrscott.Prism;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0669B803242E28D000F4111E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 38SSXVJ676;
+				INFOPLIST_FILE = Prism/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjrscott.Prism;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0669B80D242E31FA00F4111E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38SSXVJ676;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0669B80E242E31FA00F4111E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38SSXVJ676;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0669B81E242E3E5B00F4111E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 38SSXVJ676;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = PrismCommon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjrscott.PrismCommon;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0669B81F242E3E5B00F4111E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 38SSXVJ676;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = PrismCommon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjrscott.PrismCommon;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0669B7E5242E28CE00F4111E /* Build configuration list for PBXProject "Prism" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0669B7FF242E28D000F4111E /* Debug */,
+				0669B800242E28D000F4111E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0669B801242E28D000F4111E /* Build configuration list for PBXNativeTarget "Prism" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0669B802242E28D000F4111E /* Debug */,
+				0669B803242E28D000F4111E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0669B80C242E31FA00F4111E /* Build configuration list for PBXNativeTarget "PrismCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0669B80D242E31FA00F4111E /* Debug */,
+				0669B80E242E31FA00F4111E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0669B81D242E3E5B00F4111E /* Build configuration list for PBXNativeTarget "PrismCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0669B81E242E3E5B00F4111E /* Debug */,
+				0669B81F242E3E5B00F4111E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0669B7E2242E28CE00F4111E /* Project object */;
+}
