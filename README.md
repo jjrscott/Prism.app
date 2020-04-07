@@ -29,3 +29,8 @@ prism -local local.txt -remote remote.txt
 ### App Icon
 
 The [Prism app icon](https://www.flaticon.com/free-icon/prism_519423) was made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/).
+
+### Icons
+
+Other icons are from [Font Awesome](https://fontawesome.com)'s free collection (with slight modifications to look good on the toolbar).
+

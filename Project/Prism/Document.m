@@ -15,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet NSTextView *textView;
 @property (nonatomic, strong) NSLayoutManager *layoutManager;
 @property (nonatomic, weak) IBOutlet NSPopUpButton *languageButton;
+@property (nonatomic, weak) IBOutlet NSButton *debugButton;
 
 @property (nonatomic, strong) NSString *currentLanguage;
 
@@ -56,6 +57,13 @@
     [self refreshContent:nil];
 }
 
+- (IBAction)enableDebug:(NSButton*)sender {
+    self.currentLanguage = self.languageButton.selectedItem.representedObject;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self refreshContent:sender];
+    });
+}
+
 - (IBAction)selectLanguage:(id)sender {
     self.currentLanguage = self.languageButton.selectedItem.representedObject;
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -92,7 +100,7 @@
                                        language:language
                                           error:NULL];
     
-    NSMutableAttributedString *buffer = [NSMutableAttributedString new];
+    NSAttributedString *buffer;
     
     if (self.remotePath) {
         NSArray *remoteContent = [prism tokenizePath:self.remotePath
@@ -101,44 +109,26 @@
         
         NSArray <Patch*> *patches = [localContent longestCommonSubsequence:remoteContent];
         
-        NSMutableAttributedString *leftBuffer = [NSMutableAttributedString new];
-        NSMutableAttributedString *rightBuffer = [NSMutableAttributedString new];
-        
-        for (Patch*patch in patches)
-        {
-            if ([patch.left isEqual:patch.right])
+        if (self.debugButton.state == NSControlStateValueOn) {
+            NSMutableArray *filteredPatches = NSMutableArray.new;
+            for (Patch*patch in patches)
             {
-                NSAttributedString *string = [self attributedStringFromValue:patch.left color:nil];
-                [leftBuffer appendAttributedString:string];
-                [rightBuffer appendAttributedString:string];
-            } else {
-                if (patch.left)
-                {
-                    NSAttributedString *string = [self attributedStringFromValue:patch.left color:[NSColor colorFromXCColorThemeString:@"0.16 0.24 0.18 1"]];
-                    [leftBuffer appendAttributedString:string];
+                if ([patch.left isEqual:patch.right]) {
+                    [filteredPatches addObject:patch.left];
                 }
-                if (patch.right)
-                {
-                    NSAttributedString *string = [self attributedStringFromValue:patch.right color:[NSColor colorFromXCColorThemeString:@"0.26 0.16 0.17 1"]];
-                    [rightBuffer appendAttributedString:string];
+                else {
+                    [filteredPatches addObject:patch];
                 }
             }
-            
-            if ([leftBuffer.string containsString:@"\n"] || [rightBuffer.string containsString:@"\n"] || patch == patches.lastObject) {
-                if (![leftBuffer isEqual:rightBuffer])
-                {
-                    [buffer appendAttributedString:rightBuffer];
-                }
-                [buffer appendAttributedString:leftBuffer];
-                leftBuffer = [NSMutableAttributedString new];
-                rightBuffer = [NSMutableAttributedString new];
-            }
+            buffer = [JJRSObjectDescription attributedDescriptionForObject:filteredPatches];
+        } else {
+            buffer = [self attributedStringFromPatches:patches];
         }
     } else {
-        for (id token in localContent)
-        {
-            NSAttributedString *string = [self attributedStringFromValue:token color:nil];
-            [buffer appendAttributedString:string];
+        if (self.debugButton.state == NSControlStateValueOn) {
+            buffer = [JJRSObjectDescription attributedDescriptionForObject:localContent];
+        } else {
+            buffer = [self attributedStringFromTokens:localContent];
         }
     }
     
@@ -148,6 +138,55 @@
     
     self.textView.backgroundColor = [NSColor colorFromXCColorThemeString:@"0.118 0.125 0.157 1"];
     [self.textView.textStorage setAttributedString:buffer];
+}
+
+-(NSAttributedString*)attributedStringFromTokens:(NSArray *)tokens {
+    NSMutableAttributedString *buffer = [NSMutableAttributedString new];
+    for (id token in tokens)
+    {
+        NSAttributedString *string = [self attributedStringFromValue:token color:nil];
+        [buffer appendAttributedString:string];
+    }
+    return buffer;
+}
+
+-(NSAttributedString*)attributedStringFromPatches:(NSArray <Patch*> *)patches {
+    NSMutableAttributedString *buffer = [NSMutableAttributedString new];
+
+    NSMutableAttributedString *leftBuffer = [NSMutableAttributedString new];
+    NSMutableAttributedString *rightBuffer = [NSMutableAttributedString new];
+    
+    for (Patch*patch in patches)
+    {
+        if ([patch.left isEqual:patch.right])
+        {
+            NSAttributedString *string = [self attributedStringFromValue:patch.left color:nil];
+            [leftBuffer appendAttributedString:string];
+            [rightBuffer appendAttributedString:string];
+        } else {
+            if (patch.left)
+            {
+                NSAttributedString *string = [self attributedStringFromValue:patch.left color:[NSColor colorFromXCColorThemeString:@"0.16 0.24 0.18 1"]];
+                [leftBuffer appendAttributedString:string];
+            }
+            if (patch.right)
+            {
+                NSAttributedString *string = [self attributedStringFromValue:patch.right color:[NSColor colorFromXCColorThemeString:@"0.26 0.16 0.17 1"]];
+                [rightBuffer appendAttributedString:string];
+            }
+        }
+        
+        if ([leftBuffer.string containsString:@"\n"] || [rightBuffer.string containsString:@"\n"] || patch == patches.lastObject) {
+            if (![leftBuffer isEqual:rightBuffer])
+            {
+                [buffer appendAttributedString:rightBuffer];
+            }
+            [buffer appendAttributedString:leftBuffer];
+            leftBuffer = [NSMutableAttributedString new];
+            rightBuffer = [NSMutableAttributedString new];
+        }
+    }
+    return buffer;
 }
 
 -(NSAttributedString *)attributedStringFromValue:(id)value color:(NSColor*)color
@@ -252,6 +291,7 @@
     [coder decodeProperty:@selector(localPath) toObject:self];
     [coder decodeProperty:@selector(remotePath) toObject:self];
     [coder decodeProperty:@selector(currentLanguage) toObject:self];
+    [coder decodeProperty:@selector(state) toObject:self.debugButton];
     [self refreshContent:self];
 }
 
@@ -260,6 +300,7 @@
     [coder encodeProperty:@selector(localPath) fromObject:self];
     [coder encodeProperty:@selector(remotePath) fromObject:self];
     [coder encodeProperty:@selector(currentLanguage) fromObject:self];
+    [coder encodeProperty:@selector(state) fromObject:self.debugButton];
     [super encodeRestorableStateWithCoder:coder];
 }
 

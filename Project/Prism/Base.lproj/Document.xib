@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Document">
             <connections>
+                <outlet property="debugButton" destination="4AM-yx-BP8" id="GHo-a2-euQ"/>
                 <outlet property="languageButton" destination="AAR-vh-zPW" id="g1k-l4-U3b"/>
                 <outlet property="textView" destination="YCS-96-E5B" id="8Sq-rG-RXN"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
@@ -83,14 +84,12 @@
                             </connections>
                         </popUpButton>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="C673A7E8-B6C2-4386-8BC5-082B6B48B7D8" label="Refresh" paletteLabel="Refresh" image="RefreshButton_Normal" id="UK8-Ji-DT5">
+                    <toolbarItem implicitItemIdentifier="C673A7E8-B6C2-4386-8BC5-082B6B48B7D8" label="Refresh" paletteLabel="Refresh" image="sync" sizingBehavior="auto" id="UK8-Ji-DT5">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="11" height="15"/>
-                        <size key="maxSize" width="48" height="48"/>
                         <button key="view" id="nrQ-ff-bTf">
                             <rect key="frame" x="0.0" y="14" width="48" height="48"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="RefreshButton_Normal" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="lgz-CA-cjS">
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sync" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="lgz-CA-cjS">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -99,9 +98,24 @@
                             </connections>
                         </button>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="9FC79D21-BD7C-40F0-9744-F8415C127B75" label="Debug" paletteLabel="Debug" image="bug" sizingBehavior="auto" id="Mda-3e-ZO5">
+                        <nil key="toolTip"/>
+                        <button key="view" id="4AM-yx-BP8">
+                            <rect key="frame" x="0.0" y="14" width="48" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="bug" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Vqx-eY-ahU">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="enableDebug:" target="-2" id="jJ9-YW-crx"/>
+                            </connections>
+                        </button>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="JOZ-dd-6e1"/>
+                    <toolbarItem reference="Mda-3e-ZO5"/>
                     <toolbarItem reference="AVx-oO-gPL"/>
                     <toolbarItem reference="UK8-Ji-DT5"/>
                 </defaultToolbarItems>
@@ -113,6 +127,7 @@
         </window>
     </objects>
     <resources>
-        <image name="RefreshButton_Normal" width="11" height="14"/>
+        <image name="bug" width="20" height="20"/>
+        <image name="sync" width="16" height="16"/>
     </resources>
 </document>

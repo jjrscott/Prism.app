@@ -18,15 +18,15 @@
 - (void)encodeProperty:(SEL)propertySelector fromObject:(nullable id)object {
     NSString *key = [self keyFromPropertySelector:propertySelector];
     id value = [object valueForKey:key];
-    Print(@"encodeProperty: %@\n         value: %@", key, value);
+//    Print(@"encodeProperty: %@\n         value: %@", key, value);
     [self encodeObject:value forKey:key];
 }
 
 - (void)decodeProperty:(SEL)propertySelector toObject:(nullable id)object {
     NSString *key = [self keyFromPropertySelector:propertySelector];
     id value = [self decodeObjectForKey:key];
-    Print(@"decodeProperty: %@\n         value: %@", key, value);
-    [object setValue:value forKey:key];
+//    Print(@"decodeProperty: %@\n         value: %@", key, value);
+    if (value) [object setValue:value forKey:key];
 }
 
 @end

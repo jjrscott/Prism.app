@@ -1,0 +1,3 @@
+[submodule "Project/JJRSObjectDescription"]
+	path = Project/JJRSObjectDescription
+	url = git@github.com:jjrscott/JJRSObjectDescription.git

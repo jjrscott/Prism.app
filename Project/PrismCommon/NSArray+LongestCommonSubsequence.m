@@ -8,6 +8,7 @@
 //
 
 #import "NSArray+LongestCommonSubsequence.h"
+#import "NSCoder+Property.h"
 
 @interface Patch ()
 
@@ -108,6 +109,12 @@
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level;
 {
     return [NSString stringWithFormat:@"%@ {left = %@, right = %@}", super.description, _left, _right];
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeProperty:@selector(left) fromObject:self];
+    [coder encodeProperty:@selector(right) fromObject:self];
 }
 
 @end

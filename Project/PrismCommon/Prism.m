@@ -60,7 +60,7 @@ void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
                                                                                 inTag:path.pathExtension
                                                                     inConformingToUTI:nil];
 
-    if ([preferredIdentifier hasPrefix:@"dyn."]) preferredIdentifier = [@"Prism.extension" stringByAppendingPathExtension:path.pathExtension];
+    if ([preferredIdentifier hasPrefix:@"dyn."]) preferredIdentifier = [@"prism.extension" stringByAppendingPathExtension:path.pathExtension];
     
     NSDictionary *prismLanguages = @{
                                      @"public.shell-script" : @"shell",
@@ -71,8 +71,10 @@ void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
                                      @"public.xml" : @"xml",
                                      @"com.sun.java-source" : @"java",
                                      @"public.json" : @"json",
-                                     @"Prism.extension.gradle" : @"groovy",
-                                     @"Prism.extension.kt" : @"kotlin",
+                                     @"prism.extension.gradle" : @"groovy",
+                                     @"prism.extension.groovy" : @"groovy",
+                                     @"prism.extension.gvy" : @"groovy",
+                                     @"prism.extension.kt" : @"kotlin",
                                      @"net.daringfireball.markdown" : @"markdown",
                                      @"public.plain-text" : @"x-plain",
                                      };
@@ -103,7 +105,7 @@ void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
 -(NSArray*)splitLines:(NSString*)string {
     NSMutableArray *tokens = [NSMutableArray new];
     
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(\\S+|\\s)" options:kNilOptions error:NULL];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([^\n]+|[\n])" options:kNilOptions error:NULL];
     [regex enumerateMatchesInString:string
                             options:kNilOptions
                               range:NSMakeRange(0, string.length)

@@ -49,6 +49,10 @@
 		067F4B062434AA65004D7928 /* NSCoder+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4B042434AA65004D7928 /* NSCoder+Property.m */; };
 		06A28F082434D64800026539 /* NSPopUpButton+RepresentedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 06A28F062434D64800026539 /* NSPopUpButton+RepresentedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06A28F092434D64800026539 /* NSPopUpButton+RepresentedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */; };
+		06E1C2DF243B3E2B0074ED18 /* NSJSONSerialization+String.h in Headers */ = {isa = PBXBuildFile; fileRef = 06E1C2DD243B3E2B0074ED18 /* NSJSONSerialization+String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06E1C2E0243B3E2B0074ED18 /* NSJSONSerialization+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */; };
+		06E1C30F243C49060074ED18 /* JJRSObjectDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */; };
+		06E1C310243C49060074ED18 /* JJRSObjectDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 06E1C30E243C49060074ED18 /* JJRSObjectDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +154,10 @@
 		067F4B042434AA65004D7928 /* NSCoder+Property.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCoder+Property.m"; sourceTree = "<group>"; };
 		06A28F062434D64800026539 /* NSPopUpButton+RepresentedObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSPopUpButton+RepresentedObject.h"; sourceTree = "<group>"; };
 		06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSPopUpButton+RepresentedObject.m"; sourceTree = "<group>"; };
+		06E1C2DD243B3E2B0074ED18 /* NSJSONSerialization+String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+String.h"; sourceTree = "<group>"; };
+		06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+String.m"; sourceTree = "<group>"; };
+		06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJRSObjectDescription.m; sourceTree = "<group>"; };
+		06E1C30E243C49060074ED18 /* JJRSObjectDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJRSObjectDescription.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,10 +266,13 @@
 				06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */,
 				0660DB8624361C1A00002287 /* CGContext+RoundedRect.h */,
 				0660DB8724361C1A00002287 /* CGContext+RoundedRect.m */,
+				06E1C2DD243B3E2B0074ED18 /* NSJSONSerialization+String.h */,
+				06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */,
 				067F4AD1242FDDF5004D7928 /* Prism.h */,
 				067F4AD2242FDDF6004D7928 /* Prism.m */,
 				067F4ACF242FDDBD004D7928 /* prism.js */,
 				0669B817242E3E5B00F4111E /* Info.plist */,
+				06E1C30C243C49060074ED18 /* JJRSObjectDescription */,
 			);
 			path = PrismCommon;
 			sourceTree = "<group>";
@@ -274,6 +285,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		06E1C30C243C49060074ED18 /* JJRSObjectDescription */ = {
+			isa = PBXGroup;
+			children = (
+				06E1C30E243C49060074ED18 /* JJRSObjectDescription.h */,
+				06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */,
+			);
+			name = JJRSObjectDescription;
+			path = JJRSObjectDescription/JJRSObjectDescription;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -282,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0669B818242E3E5B00F4111E /* PrismCommon.h in Headers */,
+				06E1C310243C49060074ED18 /* JJRSObjectDescription.h in Headers */,
 				067F4846242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.h in Headers */,
 				067F4841242E7A8D004D7928 /* UTType+ObjC.h in Headers */,
 				067F483F242E7A8D004D7928 /* NSFileManager+DirectoryContents.h in Headers */,
@@ -290,6 +312,7 @@
 				067F4ADB2430B3FC004D7928 /* NSColor+Adjustment.h in Headers */,
 				067F4AD3242FDDF6004D7928 /* Prism.h in Headers */,
 				067F4AE3243217ED004D7928 /* NSColor+XCColorTheme.h in Headers */,
+				06E1C2DF243B3E2B0074ED18 /* NSJSONSerialization+String.h in Headers */,
 				067F483E242E7A8D004D7928 /* NSString+ComposedCharacterSequences.h in Headers */,
 				067F4ADF243115C1004D7928 /* NSColor+Hex.h in Headers */,
 				067F4840242E7A8D004D7928 /* NSTask+Execution.h in Headers */,
@@ -448,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06E1C30F243C49060074ED18 /* JJRSObjectDescription.m in Sources */,
 				067F4843242E7A8D004D7928 /* UTType+ObjC.m in Sources */,
 				067F4AE4243217ED004D7928 /* NSColor+XCColorTheme.m in Sources */,
 				067F4ADC2430B3FC004D7928 /* NSColor+Adjustment.m in Sources */,
@@ -460,6 +484,7 @@
 				06A28F092434D64800026539 /* NSPopUpButton+RepresentedObject.m in Sources */,
 				067F483D242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.m in Sources */,
 				067F4AD4242FDDF6004D7928 /* Prism.m in Sources */,
+				06E1C2E0243B3E2B0074ED18 /* NSJSONSerialization+String.m in Sources */,
 				0669B822242E3E8000F4111E /* PrismCommonUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
