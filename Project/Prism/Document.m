@@ -110,6 +110,29 @@
 }
 
 - (NSString*)suggestedLanguageForPath:(NSString *)path {
+    
+    NSData *standardOutput = nil;
+    [NSTask executeTaskWithExecutableURL:[NSURL fileURLWithPath:@"/usr/bin/file"]
+                               arguments:@[@"--mime-type", @"--brief", path]
+                           standardInput:nil
+                          standardOutput:&standardOutput
+                           standardError:NULL
+                                   error:NULL];
+    
+    NSString *mimeType = [[NSString alloc] initWithData:standardOutput encoding:NSASCIIStringEncoding];
+    
+    mimeType = [mimeType stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
+    NSDictionary *mimeTypes = @{
+                                @"text/x-ruby" : @"public.ruby-script",
+                                };
+    
+    Print(@"mimeType: %@", mimeType);
+    
+    if (mimeTypes[mimeType]) return mimeTypes[mimeType];
+    
+    
+    
     NSString *preferredIdentifier = [UTType createPreferredIdentifierForTagInTagClass:UTTagClassFilenameExtension
                                                                                 inTag:path.pathExtension
                                                                     inConformingToUTI:nil];
