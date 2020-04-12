@@ -15,6 +15,7 @@
 @interface Prism ()
 
 @property (nonatomic, strong) JSContext *context;
+@property (nonatomic, strong) NSDictionary *prismLanguages;
 
 @end
 
@@ -30,82 +31,31 @@
         _context = [JSContext new];
         NSString *prismSourcecode = [NSString stringWithContentsOfURL:prismURL encoding:NSUTF8StringEncoding error:NULL];
         [_context evaluateScript:prismSourcecode withSourceURL:prismURL];
-
+        
+        _prismLanguages = @{
+                            @"com.sun.java-source" : @"java",
+                            @"net.daringfireball.markdown" : @"markdown",
+                            @"public.c-header" : @"c",
+                            @"public.json" : @"json",
+                            @"public.objective-c-source" : @"objectivec",
+                            @"public.perl-script" : @"perl",
+                            @"public.plain-text" : @"x-plain",
+                            @"public.shell-script" : @"shell",
+                            @"public.xml" : @"xml",
+                            @"public.yaml" : @"yaml",
+                            };
     }
     return self;
 }
 
 - (NSArray*)availableLanguages {
-    JSValue *values = [_context evaluateScript:@"Object.keys(Prism.languages)"];
-    NSMutableArray *availableLanguages = NSMutableArray.new;
-    [availableLanguages addObject:@"x-plain"];
-    [availableLanguages addObjectsFromArray:values.toArray];
-    return availableLanguages.copy;
-    
-}
-
-void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
-    
-    [parentUTIs addObject:uti];
-    [parentUTIs addObject:@"\n"];
-    NSArray *parentUtis = [UTType copyDeclarationInUTI:uti][(__bridge id)kUTTypeConformsToKey];
-    
-    for (NSString* parentUti in parentUtis) {
-        Conforms(parentUti, parentUTIs);
-    }
-}
-
-- (NSArray*)suggestedLanguagesForPath:(NSString *)path {
-    NSString *preferredIdentifier = [UTType createPreferredIdentifierForTagInTagClass:UTTagClassFilenameExtension
-                                                                                inTag:path.pathExtension
-                                                                    inConformingToUTI:nil];
-
-    if ([preferredIdentifier hasPrefix:@"dyn."]) preferredIdentifier = [@"prism.extension" stringByAppendingPathExtension:path.pathExtension];
-    
-    NSDictionary *prismLanguages = @{
-                                     @"public.shell-script" : @"shell",
-                                     @"public.yaml" : @"yaml",
-                                     @"public.c-header" : @"c",
-                                     @"public.objective-c-source" : @"objectivec",
-                                     @"public.perl-script" : @"perl",
-                                     @"public.xml" : @"xml",
-                                     @"com.sun.java-source" : @"java",
-                                     @"public.json" : @"json",
-                                     @"prism.extension.gradle" : @"groovy",
-                                     @"prism.extension.groovy" : @"groovy",
-                                     @"prism.extension.gvy" : @"groovy",
-                                     @"prism.extension.kt" : @"kotlin",
-                                     @"net.daringfireball.markdown" : @"markdown",
-                                     @"public.plain-text" : @"x-plain",
-                                     };
-
-
-    NSMutableArray *parentUTIs = [NSMutableArray new];
-    Conforms(preferredIdentifier, parentUTIs);
-    
-    NSMutableArray *suggestedLanguages = [NSMutableArray new];
-    for (NSString *conformsToUTI in parentUTIs) {
-        NSString *prismLanguage = prismLanguages[conformsToUTI];
-        if (prismLanguage) {
-            [suggestedLanguages addObject:prismLanguage];
-        }
-    }
-    return suggestedLanguages.copy;
-}
-
-- (NSArray*)tokenizePath:(NSString *)path language:(NSString *)language error:(NSError **)error
-{
-    NSString *content = [NSString stringWithContentsOfFile:path
-                                                  encoding:NSUTF8StringEncoding
-                                                     error:NULL];
-    
-    return [self tokenizeString:content language:language error:NULL];
+    return self.prismLanguages.allKeys;
 }
 
 -(NSArray*)splitLines:(NSString*)string {
     NSMutableArray *tokens = [NSMutableArray new];
     
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([^\n]+|[\n])" options:kNilOptions error:NULL];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([^\n]+\n?|[\n])" options:kNilOptions error:NULL];
     [regex enumerateMatchesInString:string
                             options:kNilOptions
                               range:NSMakeRange(0, string.length)
@@ -118,11 +68,12 @@ void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
 
 - (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error
 {
-    if ([language isEqual:@"x-plain"]) {
+    NSString *prismLanguage = self.prismLanguages[language];
+    if ([prismLanguage isEqual:@"x-plain"]) {
         return [self splitLines:input];
     } else {
         _context[@"input"] = input;
-        _context[@"language"] = language;
+        _context[@"language"] = prismLanguage;
         JSValue *values = [_context evaluateScript:@"Prism.tokenize(input, Prism.languages[language])"];
         return [self clean:values.toArray];
     }

@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) NSDictionary *currentTheme;
 
+@property (nonatomic, strong) NSMutableSet <NSString*>* availableLanguages;
 
 @end
 
@@ -44,11 +45,25 @@
     
     Prism *prism = [Prism new];
     
-    NSArray *availableLanguages = [[prism availableLanguages] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSArray *availableLanguages = [prism availableLanguages];
+    
+    self.availableLanguages = NSMutableSet.new;
+    
+    [self.availableLanguages addObjectsFromArray:availableLanguages];
     
     [self.languageButton removeAllItems];
+    
+    NSMutableDictionary *languageTitles = NSMutableDictionary.new;
     for (NSString *availableLanguage in availableLanguages) {
-        NSMenuItem *menutItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(availableLanguage, @"")
+        NSDictionary *declaration = [UTType copyDeclarationInUTI:availableLanguage];
+        languageTitles[availableLanguage] = declaration[@"UTTypeDescription"] ?: NSLocalizedString(availableLanguage, @"");
+    }
+    
+    availableLanguages = [availableLanguages sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [languageTitles[obj1] caseInsensitiveCompare:languageTitles[obj2]];
+    }];
+    for (NSString *availableLanguage in availableLanguages) {
+        NSMenuItem *menutItem = [[NSMenuItem alloc] initWithTitle:languageTitles[availableLanguage] 
                                                            action:@selector(selectLanguage:)
                                                     keyEquivalent:@""];
         menutItem.representedObject = availableLanguage;
@@ -77,6 +92,44 @@
     return YES;
 }
 
+void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
+    
+    [parentUTIs addObject:uti];
+    [parentUTIs addObject:@"\n"];
+    NSArray *parentUtis = [UTType copyDeclarationInUTI:uti][(__bridge id)kUTTypeConformsToKey];
+    
+    for (NSString* parentUti in parentUtis) {
+        Conforms(parentUti, parentUTIs);
+    }
+}
+
+- (NSString*)suggestedLanguageForPath:(NSString *)path {
+    NSString *preferredIdentifier = [UTType createPreferredIdentifierForTagInTagClass:UTTagClassFilenameExtension
+                                                                                inTag:path.pathExtension
+                                                                    inConformingToUTI:nil];
+    
+    NSMutableArray *parentUTIs = [NSMutableArray new];
+    Conforms(preferredIdentifier, parentUTIs);
+    
+    for (NSString *conformsToUTI in parentUTIs) {
+        if ([self.availableLanguages containsObject:conformsToUTI]) {
+            return conformsToUTI;
+        }
+    }
+    return nil;
+}
+
+- (NSArray*)tokenizePath:(NSString *)path language:(NSString *)language error:(NSError **)error
+{
+    NSString *content = [NSString stringWithContentsOfFile:path
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:NULL];
+    
+    Prism *prism = [Prism new];
+    
+    return [prism tokenizeString:content language:language error:NULL];
+}
+
 - (IBAction)refreshContent:(id)sender {
     
     Print(@"Refresh Content");
@@ -87,25 +140,22 @@
         self.windowForSheet.title = [NSString stringWithFormat:@"%@ ⇄ %@", self.localPath.lastPathComponent, self.remotePath.lastPathComponent];
     }
     
-    Prism *prism = [Prism new];
-    
     NSString *language = self.currentLanguage;
     
     if (!language) {
-        NSArray *suggestedLanguages = [prism suggestedLanguagesForPath:self.localPath];
-        language = suggestedLanguages.firstObject;
+        language = [self suggestedLanguageForPath:self.localPath];
     }
     
-    NSArray *localContent = [prism tokenizePath:self.localPath
-                                       language:language
-                                          error:NULL];
+    NSArray *localContent = [self tokenizePath:self.localPath
+                                      language:language
+                                         error:NULL];
     
     NSAttributedString *buffer;
     
     if (self.remotePath) {
-        NSArray *remoteContent = [prism tokenizePath:self.remotePath
-                                            language:language
-                                               error:NULL];
+        NSArray *remoteContent = [self tokenizePath:self.remotePath
+                                           language:language
+                                              error:NULL];
         
         NSArray <Patch*> *patches = [localContent longestCommonSubsequence:remoteContent];
         

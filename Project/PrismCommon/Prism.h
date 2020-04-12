@@ -12,9 +12,6 @@
 
 - (NSArray*)availableLanguages;
 
-- (NSArray*)suggestedLanguagesForPath:(NSString *)path;
-
-- (NSArray*)tokenizePath:(NSString *)path language:(NSString *)language error:(NSError **)error;
 - (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error;
 
 @end
