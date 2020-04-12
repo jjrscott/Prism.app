@@ -67,5 +67,66 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.source-code</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Groovy Source Code</string>
+			<key>UTTypeIdentifier</key>
+			<string>org.codehaus.groovy-source</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>groovy</string>
+					<string>gvy</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.source-code</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Kotlin Source File</string>
+			<key>UTTypeIdentifier</key>
+			<string>org.kotlinlang.source</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>kt</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>org.codehaus.groovy-source</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Gradle Source File</string>
+			<key>UTTypeIdentifier</key>
+			<string>org.gradle.source</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>gradle</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>Plain text</string>
+			<key>UTTypeIdentifier</key>
+			<string>public.plain-text</string>
+		</dict>
+	</array>
 </dict>
 </plist>

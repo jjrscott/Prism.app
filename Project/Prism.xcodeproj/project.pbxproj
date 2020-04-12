@@ -53,6 +53,7 @@
 		06E1C2E0243B3E2B0074ED18 /* NSJSONSerialization+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */; };
 		06E1C30F243C49060074ED18 /* JJRSObjectDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */; };
 		06E1C310243C49060074ED18 /* JJRSObjectDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 06E1C30E243C49060074ED18 /* JJRSObjectDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06FEB6C9244354D800AF526E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06FEB6CB244354D800AF526E /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+String.m"; sourceTree = "<group>"; };
 		06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJRSObjectDescription.m; sourceTree = "<group>"; };
 		06E1C30E243C49060074ED18 /* JJRSObjectDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJRSObjectDescription.h; sourceTree = "<group>"; };
+		06FEB6CA244354D800AF526E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				0669B7FB242E28D000F4111E /* Info.plist */,
 				0669B7FC242E28D000F4111E /* main.m */,
 				0669B7FE242E28D000F4111E /* Prism.entitlements */,
+				06FEB6CB244354D800AF526E /* Localizable.strings */,
 			);
 			path = Prism;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0669B7F7242E28D000F4111E /* Assets.xcassets in Resources */,
+				06FEB6C9244354D800AF526E /* Localizable.strings in Resources */,
 				0669B7F5242E28CE00F4111E /* Document.xib in Resources */,
 				0669B7FA242E28D000F4111E /* MainMenu.xib in Resources */,
 			);
@@ -519,6 +523,14 @@
 				0669B7F9242E28D000F4111E /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		06FEB6CB244354D800AF526E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06FEB6CA244354D800AF526E /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

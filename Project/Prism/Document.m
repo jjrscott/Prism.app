@@ -55,9 +55,10 @@
     
     NSMutableDictionary *languageTitles = NSMutableDictionary.new;
     for (NSString *availableLanguage in availableLanguages) {
-        NSDictionary *declaration = [UTType copyDeclarationInUTI:availableLanguage];
-        languageTitles[availableLanguage] = declaration[@"UTTypeDescription"] ?: NSLocalizedString(availableLanguage, @"");
+        languageTitles[availableLanguage] = NSLocalizedString(availableLanguage, @"");
     }
+    
+    Print(@"languageTitles: %@", languageTitles);
     
     availableLanguages = [availableLanguages sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return [languageTitles[obj1] caseInsensitiveCompare:languageTitles[obj2]];
@@ -92,15 +93,20 @@
     return YES;
 }
 
-void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
-    
-    [parentUTIs addObject:uti];
-    [parentUTIs addObject:@"\n"];
-    NSArray *parentUtis = [UTType copyDeclarationInUTI:uti][(__bridge id)kUTTypeConformsToKey];
-    
-    for (NSString* parentUti in parentUtis) {
-        Conforms(parentUti, parentUTIs);
+- (NSString*)suggestedLanguageForUTIs:(NSArray <NSString *>*)utis {
+    for (NSString *uti in utis) {
+        if ([self.availableLanguages containsObject:uti]) {
+            return uti;
+        }
     }
+    
+    for (NSString *uti in utis) {
+        NSDictionary *declaration = [UTType copyDeclarationInUTI:uti];
+        NSString *suggestedUTI = [self suggestedLanguageForUTIs:declaration[@"UTTypeConformsTo"]];
+        if (suggestedUTI) return suggestedUTI;
+    }
+
+    return nil;
 }
 
 - (NSString*)suggestedLanguageForPath:(NSString *)path {
@@ -108,15 +114,7 @@ void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
                                                                                 inTag:path.pathExtension
                                                                     inConformingToUTI:nil];
     
-    NSMutableArray *parentUTIs = [NSMutableArray new];
-    Conforms(preferredIdentifier, parentUTIs);
-    
-    for (NSString *conformsToUTI in parentUTIs) {
-        if ([self.availableLanguages containsObject:conformsToUTI]) {
-            return conformsToUTI;
-        }
-    }
-    return nil;
+    return [self suggestedLanguageForUTIs:@[preferredIdentifier]];
 }
 
 - (NSArray*)tokenizePath:(NSString *)path language:(NSString *)language error:(NSError **)error

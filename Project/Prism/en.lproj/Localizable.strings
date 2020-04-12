@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Prism
+
+  Created by John Scott on 12/04/2020.
+  Copyright © 2020 John Scott. All rights reserved.
+*/
+
+"com.sun.java-source" = "Java source code";
+"net.daringfireball.markdown" = "Markdown";
+"org.codehaus.groovy-source" = "Groovy Source Code";
+"org.gradle.source" = "Gradle Source File";
+"org.kotlinlang.source" = "Kotlin Source File";
+"public.c-header" = "C header code";
+"public.json" = "JSON";
+"public.objective-c-source" = "Objective-C source code";
+"public.perl-script" = "Perl script";
+"public.plain-text" = "Plain text";
+"public.ruby-script" = "Ruby Source";
+"public.shell-script" = "Shell script";
+"public.xml" = "XML text";
+"public.yaml" = "YAML";
+
