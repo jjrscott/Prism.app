@@ -14,6 +14,7 @@
 "org.khronos.glsl.fragment-shader" = "glsl";
 "org.khronos.glsl.vertex-shader" = "glsl";
 "org.kotlinlang.source" = "kotlin";
+"org.tug.tex" = "tex";
 "public.c-header" = "c";
 "public.c-source" = "c";
 "public.c-plus-plus-header" = "cpp";
@@ -28,6 +29,6 @@
 "public.python-script" = "python";
 "public.ruby-script" = "ruby";
 "public.shell-script" = "shell";
+"public.swift-source" = "swift";
 "public.xml" = "xml";
 "public.yaml" = "yaml";
-

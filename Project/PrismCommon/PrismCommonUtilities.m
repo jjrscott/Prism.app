@@ -18,3 +18,12 @@ void Print(NSString *format, ...)
     va_end(argList);
     puts(string.UTF8String);
 }
+
+void DumpStrings(NSDictionary *strings)
+{
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"prism-dump-strings"]) {
+        for (NSString *key in [strings.allKeys sortedArrayUsingSelector:@selector(compare:)]) {
+            Print(@"\"%@\" = \"%@\";", key, strings[key]);
+        }
+    }
+}

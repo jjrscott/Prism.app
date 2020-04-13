@@ -14,11 +14,27 @@
 @interface Prism ()
 
 @property (nonatomic, strong) JSContext *context;
-@property (nonatomic, strong) NSDictionary *prismLanguages;
+@property (nonatomic, readonly) NSDictionary *prismLanguages;
 
 @end
 
 @implementation Prism
+
+- (NSDictionary *)prismLanguages {
+    static NSDictionary *prismLanguages;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once (&onceToken, ^{
+        NSURL *prismUTIsURL = [[NSBundle bundleForClass:self.class] URLForResource:@"PrismUTIs"
+                                                                     withExtension:@"plist"];
+        
+        prismLanguages = [NSDictionary dictionaryWithContentsOfURL:prismUTIsURL];
+        
+        DumpStrings(prismLanguages);
+    });
+    return prismLanguages;
+}
+
 
 - (instancetype)init
 {
@@ -29,12 +45,6 @@
         _context = [JSContext new];
         NSString *prismSourcecode = [NSString stringWithContentsOfURL:prismURL encoding:NSUTF8StringEncoding error:NULL];
         [_context evaluateScript:prismSourcecode withSourceURL:prismURL];
-        
-        NSURL *prismUTIsURL = [[NSBundle bundleForClass:self.class] URLForResource:@"PrismUTIs"
-                                                                     withExtension:@"plist"];
-        
-        _prismLanguages = [NSDictionary dictionaryWithContentsOfURL:prismUTIsURL];
-
     }
     return self;
 }

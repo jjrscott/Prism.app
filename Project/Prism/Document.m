@@ -19,8 +19,6 @@
 
 @property (nonatomic, strong) NSString *currentLanguage;
 
-@property (nonatomic, strong) NSDictionary *currentTheme;
-
 @property (nonatomic, strong) NSMutableSet <NSString*>* availableLanguages;
 
 @end
@@ -60,9 +58,11 @@
         languageTitles[availableLanguage] = NSLocalizedStringWithDefaultValue(availableLanguage, nil, NSBundle.mainBundle, declaration[@"UTTypeDescription"], @"");
     }
     
-//    for (NSString *uti in [languageTitles.allKeys sortedArrayUsingSelector:@selector(compare:)]) {
-//        Print(@"\"%@\" = \"%@\";", uti, languageTitles[uti]);
-//    }
+    static dispatch_once_t onceToken;
+    
+    dispatch_once (&onceToken, ^{
+        DumpStrings(languageTitles);
+    });
     
     availableLanguages = [availableLanguages sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return [languageTitles[obj1] caseInsensitiveCompare:languageTitles[obj2]];
@@ -99,6 +99,7 @@
 
 - (NSString*)suggestedLanguageForUTIs:(NSArray <NSString *>*)utis {
     for (NSString *uti in utis) {
+        Print(@"uti: %@", uti);
         if ([self.availableLanguages containsObject:uti]) {
             return uti;
         }
@@ -129,9 +130,10 @@
     
     NSDictionary *mimeTypes = @{
                                 @"text/x-ruby" : @"public.ruby-script",
+                                @"text/x-tex" : @"org.tug.tex",
                                 };
     
-//    Print(@"mimeType: %@", mimeType);
+    Print(@"mimeType: %@", mimeType);
     
     if (mimeTypes[mimeType]) return mimeTypes[mimeType];
     
@@ -141,7 +143,7 @@
                                                                                 inTag:path.pathExtension
                                                                     inConformingToUTI:nil];
     
-//    Print(@"preferredIdentifier: %@", preferredIdentifier);
+    Print(@"preferredIdentifier: %@", preferredIdentifier);
 
     return [self suggestedLanguageForUTIs:@[preferredIdentifier]];
 }

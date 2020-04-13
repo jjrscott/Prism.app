@@ -7,3 +7,5 @@
 //
 
 void Print(NSString *format, ...);
+
+void DumpStrings(NSDictionary *strings);
