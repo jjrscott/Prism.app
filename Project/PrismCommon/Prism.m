@@ -11,14 +11,12 @@
 #import "UTType+ObjC.h"
 #import "PrismCommonUtilities.h"
 
-
 @interface Prism ()
 
 @property (nonatomic, strong) JSContext *context;
 @property (nonatomic, strong) NSDictionary *prismLanguages;
 
 @end
-
 
 @implementation Prism
 
@@ -32,22 +30,11 @@
         NSString *prismSourcecode = [NSString stringWithContentsOfURL:prismURL encoding:NSUTF8StringEncoding error:NULL];
         [_context evaluateScript:prismSourcecode withSourceURL:prismURL];
         
-        _prismLanguages = @{
-                            @"com.sun.java-source" : @"java",
-                            @"net.daringfireball.markdown" : @"markdown",
-                            @"org.codehaus.groovy-source" : @"groovy",
-                            @"org.gradle.source" : @"groovy",
-                            @"org.kotlinlang.source" : @"kotlin",
-                            @"public.c-header" : @"c",
-                            @"public.json" : @"json",
-                            @"public.objective-c-source" : @"objectivec",
-                            @"public.perl-script" : @"perl",
-                            @"public.plain-text" : @"x-plain",
-                            @"public.ruby-script" : @"ruby",
-                            @"public.shell-script" : @"shell",
-                            @"public.xml" : @"xml",
-                            @"public.yaml" : @"yaml",
-                            };
+        NSURL *prismUTIsURL = [[NSBundle bundleForClass:self.class] URLForResource:@"PrismUTIs"
+                                                                     withExtension:@"plist"];
+        
+        _prismLanguages = [NSDictionary dictionaryWithContentsOfURL:prismUTIsURL];
+
     }
     return self;
 }

@@ -1,0 +1,33 @@
+/*
+ PrismUTIs.plist
+ PrismCommon
+ 
+ Created by John Scott on 13/04/2020.
+ Copyright © 2020 John Scott. All rights reserved.
+ */
+
+"com.netscape.javascript-source" = "javascript";
+"com.sun.java-source" = "java";
+"net.daringfireball.markdown" = "markdown";
+"org.codehaus.groovy-source" = "groovy";
+"org.gradle.source" = "groovy";
+"org.khronos.glsl.fragment-shader" = "glsl";
+"org.khronos.glsl.vertex-shader" = "glsl";
+"org.kotlinlang.source" = "kotlin";
+"public.c-header" = "c";
+"public.c-source" = "c";
+"public.c-plus-plus-header" = "cpp";
+"public.c-plus-plus-source" = "cpp";
+"public.css" = "css";
+"public.html" = "html";
+"public.json" = "json";
+"public.make-source" = "makefile";
+"public.objective-c-source" = "objectivec";
+"public.perl-script" = "perl";
+"public.plain-text" = "x-plain";
+"public.python-script" = "python";
+"public.ruby-script" = "ruby";
+"public.shell-script" = "shell";
+"public.xml" = "xml";
+"public.yaml" = "yaml";
+

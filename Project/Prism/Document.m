@@ -55,10 +55,14 @@
     
     NSMutableDictionary *languageTitles = NSMutableDictionary.new;
     for (NSString *availableLanguage in availableLanguages) {
-        languageTitles[availableLanguage] = NSLocalizedString(availableLanguage, @"");
+        NSDictionary *declaration = [UTType copyDeclarationInUTI:availableLanguage];
+//        Print(@"declaration: %@", declaration);
+        languageTitles[availableLanguage] = NSLocalizedStringWithDefaultValue(availableLanguage, nil, NSBundle.mainBundle, declaration[@"UTTypeDescription"], @"");
     }
     
-    Print(@"languageTitles: %@", languageTitles);
+//    for (NSString *uti in [languageTitles.allKeys sortedArrayUsingSelector:@selector(compare:)]) {
+//        Print(@"\"%@\" = \"%@\";", uti, languageTitles[uti]);
+//    }
     
     availableLanguages = [availableLanguages sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return [languageTitles[obj1] caseInsensitiveCompare:languageTitles[obj2]];
@@ -127,7 +131,7 @@
                                 @"text/x-ruby" : @"public.ruby-script",
                                 };
     
-    Print(@"mimeType: %@", mimeType);
+//    Print(@"mimeType: %@", mimeType);
     
     if (mimeTypes[mimeType]) return mimeTypes[mimeType];
     
@@ -137,6 +141,8 @@
                                                                                 inTag:path.pathExtension
                                                                     inConformingToUTI:nil];
     
+//    Print(@"preferredIdentifier: %@", preferredIdentifier);
+
     return [self suggestedLanguageForUTIs:@[preferredIdentifier]];
 }
 

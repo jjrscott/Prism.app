@@ -54,6 +54,7 @@
 		06E1C30F243C49060074ED18 /* JJRSObjectDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */; };
 		06E1C310243C49060074ED18 /* JJRSObjectDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 06E1C30E243C49060074ED18 /* JJRSObjectDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06FEB6C9244354D800AF526E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06FEB6CB244354D800AF526E /* Localizable.strings */; };
+		06FEB6CD24448DFE00AF526E /* PrismUTIs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06FEB6CC24448DFE00AF526E /* PrismUTIs.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJRSObjectDescription.m; sourceTree = "<group>"; };
 		06E1C30E243C49060074ED18 /* JJRSObjectDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJRSObjectDescription.h; sourceTree = "<group>"; };
 		06FEB6CA244354D800AF526E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		06FEB6CC24448DFE00AF526E /* PrismUTIs.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; path = PrismUTIs.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */,
 				067F4AD1242FDDF5004D7928 /* Prism.h */,
 				067F4AD2242FDDF6004D7928 /* Prism.m */,
+				06FEB6CC24448DFE00AF526E /* PrismUTIs.plist */,
 				067F4ACF242FDDBD004D7928 /* prism.js */,
 				0669B817242E3E5B00F4111E /* Info.plist */,
 				06E1C30C243C49060074ED18 /* JJRSObjectDescription */,
@@ -444,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06FEB6CD24448DFE00AF526E /* PrismUTIs.plist in Resources */,
 				067F4AD0242FDDBD004D7928 /* prism.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
