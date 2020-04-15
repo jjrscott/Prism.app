@@ -175,9 +175,9 @@
         language = [self suggestedLanguageForPath:self.localPath];
     }
     
-    NSArray *localContent = [self tokenizePath:self.localPath
-                                      language:language
-                                         error:NULL];
+    NSArray *content = [self tokenizePath:self.localPath
+                                 language:language
+                                    error:NULL];
     
     NSAttributedString *buffer;
     
@@ -186,29 +186,17 @@
                                            language:language
                                               error:NULL];
         
-        NSArray <Patch*> *patches = [localContent longestCommonSubsequence:remoteContent];
-        
-        if (self.debugButton.state == NSControlStateValueOn) {
-            NSMutableArray *filteredPatches = NSMutableArray.new;
-            for (Patch*patch in patches)
-            {
-                if ([patch.left isEqual:patch.right]) {
-                    [filteredPatches addObject:patch.left];
-                }
-                else {
-                    [filteredPatches addObject:patch];
-                }
-            }
-            buffer = [JJRSObjectDescription attributedDescriptionForObject:filteredPatches];
-        } else {
-            buffer = [self attributedStringFromPatches:patches];
-        }
+        content = [NSObject differenceWithLeft:content right:remoteContent];
+    }
+    
+    if (self.debugButton.state == NSControlStateValueOn) {
+        buffer = [JJRSObjectDescription attributedDescriptionForObject:content];
     } else {
-        if (self.debugButton.state == NSControlStateValueOn) {
-            buffer = [JJRSObjectDescription attributedDescriptionForObject:localContent];
-        } else {
-            buffer = [self attributedStringFromTokens:localContent];
-        }
+        buffer = [self attributedStringFromValue:content action:nil];
+        
+        buffer = [self splitLines:buffer];
+//        buffer = [JJRSObjectDescription attributedDescriptionForObject:tokens];
+        
     }
     
     self.currentLanguage = language;
@@ -219,59 +207,10 @@
     [self.textView.textStorage setAttributedString:buffer];
 }
 
--(NSAttributedString*)attributedStringFromTokens:(NSArray *)tokens {
-    NSMutableAttributedString *buffer = [NSMutableAttributedString new];
-    for (id token in tokens)
-    {
-        NSAttributedString *string = [self attributedStringFromValue:token color:nil];
-        [buffer appendAttributedString:string];
-    }
-    return buffer;
-}
-
--(NSAttributedString*)attributedStringFromPatches:(NSArray <Patch*> *)patches {
-    NSMutableAttributedString *buffer = [NSMutableAttributedString new];
-
-    NSMutableAttributedString *leftBuffer = [NSMutableAttributedString new];
-    NSMutableAttributedString *rightBuffer = [NSMutableAttributedString new];
-    
-    for (Patch*patch in patches)
-    {
-        if ([patch.left isEqual:patch.right])
-        {
-            NSAttributedString *string = [self attributedStringFromValue:patch.left color:nil];
-            [leftBuffer appendAttributedString:string];
-            [rightBuffer appendAttributedString:string];
-        } else {
-            if (patch.left)
-            {
-                NSAttributedString *string = [self attributedStringFromValue:patch.left color:[NSColor colorFromXCColorThemeString:@"0.16 0.24 0.18 1"]];
-                [leftBuffer appendAttributedString:string];
-            }
-            if (patch.right)
-            {
-                NSAttributedString *string = [self attributedStringFromValue:patch.right color:[NSColor colorFromXCColorThemeString:@"0.26 0.16 0.17 1"]];
-                [rightBuffer appendAttributedString:string];
-            }
-        }
-        
-        if ([leftBuffer.string containsString:@"\n"] || [rightBuffer.string containsString:@"\n"] || patch == patches.lastObject) {
-            if (![leftBuffer isEqual:rightBuffer])
-            {
-                [buffer appendAttributedString:rightBuffer];
-            }
-            [buffer appendAttributedString:leftBuffer];
-            leftBuffer = [NSMutableAttributedString new];
-            rightBuffer = [NSMutableAttributedString new];
-        }
-    }
-    return buffer;
-}
-
--(NSAttributedString *)attributedStringFromValue:(id)value color:(NSColor*)color
+-(NSAttributedString *)attributedStringFromValue:(id)value action:(NSString*)action
 {
     NSMutableDictionary *attributes = [NSMutableDictionary new];
-    attributes[NSBackgroundColorAttributeName] = color;
+    attributes[@"PrismPatchAction"] = action;
     
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     paragraphStyle.lineSpacing = 5;
@@ -325,6 +264,68 @@
     return nil;
 }
 
+-(NSAttributedString*)splitLines:(NSAttributedString *)attributedString {
+    NSMutableArray *lines = [NSMutableArray new];
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([^\n]+)" options:kNilOptions error:NULL];
+    [regex enumerateMatchesInString:attributedString.string
+                            options:kNilOptions
+                              range:NSMakeRange(0, attributedString.length)
+                         usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+                             [lines addObject:[attributedString attributedSubstringFromRange:result.range]];
+                         }];
+    
+    
+    NSMutableAttributedString *buffer = NSMutableAttributedString.new;
+
+    for (NSAttributedString *line in lines) {
+        
+        NSMutableAttributedString *leftBuffer = NSMutableAttributedString.new;
+        NSMutableAttributedString *rightBuffer = NSMutableAttributedString.new;
+        
+        [line enumerateAttribute:@"PrismPatchAction"
+                         inRange:NSMakeRange(0, line.length)
+                         options:kNilOptions
+                      usingBlock:^(id  _Nullable value, NSRange range, BOOL * _Nonnull stop) {
+                          if ([value isEqual:@"remove"]) {
+                              [leftBuffer appendAttributedString:[line attributedSubstringFromRange:range]];
+                          } else if ([value isEqual:@"insert"]) {
+                              [rightBuffer appendAttributedString:[line attributedSubstringFromRange:range]];
+                          } else {
+                              [leftBuffer appendAttributedString:[line attributedSubstringFromRange:range]];
+                              [rightBuffer appendAttributedString:[line attributedSubstringFromRange:range]];
+                          }
+                      }];
+        
+        if ([leftBuffer isEqual:rightBuffer])
+        {
+            [buffer appendAttributedString:leftBuffer];
+            [buffer appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
+        } else {
+            if (leftBuffer.length) {
+                [leftBuffer appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
+                [leftBuffer addAttribute:NSBackgroundColorAttributeName
+                                   value:[NSColor colorFromXCColorThemeString:@"0.26 0.16 0.17 1"]
+                                   range:NSMakeRange(0, leftBuffer.length)];
+                
+                [buffer appendAttributedString:leftBuffer];
+            }
+            if (rightBuffer.length) {
+                [rightBuffer appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
+                [rightBuffer addAttribute:NSBackgroundColorAttributeName
+                                   value:[NSColor colorFromXCColorThemeString:@"0.16 0.24 0.18 1"]
+                                   range:NSMakeRange(0, rightBuffer.length)];
+                
+                [buffer appendAttributedString:rightBuffer];
+            }
+        }
+        
+        
+    }
+    
+    return buffer.copy;
+}
+
 -(NSAttributedString *)attributedStringFromValue:(id)value baseAttributes:(NSDictionary*)baseAttributes
 {
     if ([value isKindOfClass:NSString.class])
@@ -358,6 +359,21 @@
         NSMutableAttributedString *buffer = [NSMutableAttributedString new];
         for (id subvalue in value) {
             [buffer appendAttributedString:[self attributedStringFromValue:subvalue baseAttributes:baseAttributes]];
+        }
+        return buffer.copy;
+    } else if ([value isKindOfClass:Patch.class]) {
+        NSMutableAttributedString *buffer = [NSMutableAttributedString new];
+
+        Patch *patch = value;
+        if (patch.left)
+        {
+            NSAttributedString *string = [self attributedStringFromValue:patch.left action:@"remove"];
+            [buffer appendAttributedString:string];
+        }
+        if (patch.right)
+        {
+            NSAttributedString *string = [self attributedStringFromValue:patch.right action:@"insert"];
+            [buffer appendAttributedString:string];
         }
         return buffer.copy;
     }

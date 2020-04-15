@@ -88,7 +88,7 @@
 -(instancetype)initWithLeft:(id)left right:(id)right {
     self = [super init];
     if (self) {
-        NSAssert(left || right, @"");
+//        NSAssert(left || right, @"");
         _left = left;
         _right = right;
     }

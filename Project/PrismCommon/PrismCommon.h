@@ -31,3 +31,5 @@ FOUNDATION_EXPORT const unsigned char PrismCommonVersionString[];
 #import "NSTask+Execution.h"
 #import "Prism.h"
 #import "UTType+ObjC.h"
+#import "NSObject+Patch.h"
+#import "NSAttributedString+Utilites.h"

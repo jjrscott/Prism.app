@@ -1,0 +1,1 @@
+rect = CGRectInset(rect, 3, 0);
