@@ -7,11 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Tokeniser.h"
 
-@interface Prism : NSObject
-
-+ (NSArray*)availableLanguages;
-
-+ (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error;
+@interface Prism : NSObject <Tokeniser>
 
 @end

@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) NSString *currentLanguage;
 
-@property (nonatomic, strong) NSMutableSet <NSString*>* availableLanguages;
+@property (nonatomic, strong) NSMutableDictionary <NSString*, Class<Tokeniser>>* availableLanguages;
 
 @end
 
@@ -41,18 +41,21 @@
     self.layoutManager = [LayoutManager new];
     [self.textView.textContainer replaceLayoutManager:self.layoutManager];
     
-    NSArray *availableLanguages = [Prism availableLanguages];
+    self.availableLanguages = NSMutableDictionary.new;
     
-    self.availableLanguages = NSMutableSet.new;
-    
-    [self.availableLanguages addObjectsFromArray:availableLanguages];
-    
+    for (Class<Tokeniser> tokenizer in @[Prism.class]) {
+        for (NSString *language in [tokenizer availableLanguages]) {
+            self.availableLanguages[language] = tokenizer;
+        }
+    }
+
     [self.languageButton removeAllItems];
+    
+    NSArray *availableLanguages = [self.availableLanguages.allKeys sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     
     NSMutableDictionary *languageTitles = NSMutableDictionary.new;
     for (NSString *availableLanguage in availableLanguages) {
         NSDictionary *declaration = [UTType copyDeclarationInUTI:availableLanguage];
-//        Print(@"declaration: %@", declaration);
         languageTitles[availableLanguage] = NSLocalizedStringWithDefaultValue(availableLanguage, nil, NSBundle.mainBundle, declaration[@"UTTypeDescription"], @"");
     }
     
@@ -98,7 +101,7 @@
 - (NSString*)suggestedLanguageForUTIs:(NSArray <NSString *>*)utis {
     for (NSString *uti in utis) {
         Print(@"uti: %@", uti);
-        if ([self.availableLanguages containsObject:uti]) {
+        if (self.availableLanguages[uti]) {
             return uti;
         }
     }
@@ -152,7 +155,7 @@
                                                   encoding:NSUTF8StringEncoding
                                                      error:NULL];
     
-    return [Prism tokenizeString:content language:language error:NULL];
+    return [self.availableLanguages[language] tokenizeString:content language:language error:NULL];
 }
 
 - (IBAction)refreshContent:(id)sender {

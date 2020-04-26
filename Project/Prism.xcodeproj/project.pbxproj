@@ -22,6 +22,7 @@
 		0669B81C242E3E5B00F4111E /* PrismCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0669B814242E3E5B00F4111E /* PrismCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0669B822242E3E8000F4111E /* PrismCommonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0669B821242E3E8000F4111E /* PrismCommonUtilities.m */; };
 		0669B826242E3EAA00F4111E /* PrismCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0669B814242E3E5B00F4111E /* PrismCommon.framework */; };
+		0671D51A2456147800743082 /* Tokeniser.h in Headers */ = {isa = PBXBuildFile; fileRef = 0671D5192456147800743082 /* Tokeniser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		067F4832242E76C2004D7928 /* PrismCLI in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0669B808242E31FA00F4111E /* PrismCLI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		067F483D242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4833242E7A8C004D7928 /* NSArray+LongestCommonSubsequence.m */; };
 		067F483E242E7A8D004D7928 /* NSString+ComposedCharacterSequences.h in Headers */ = {isa = PBXBuildFile; fileRef = 067F4834242E7A8C004D7928 /* NSString+ComposedCharacterSequences.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -132,6 +133,7 @@
 		0669B816242E3E5B00F4111E /* PrismCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrismCommon.h; sourceTree = "<group>"; };
 		0669B817242E3E5B00F4111E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0669B821242E3E8000F4111E /* PrismCommonUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrismCommonUtilities.m; sourceTree = "<group>"; };
+		0671D5192456147800743082 /* Tokeniser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tokeniser.h; sourceTree = "<group>"; };
 		067F4833242E7A8C004D7928 /* NSArray+LongestCommonSubsequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LongestCommonSubsequence.m"; sourceTree = "<group>"; };
 		067F4834242E7A8C004D7928 /* NSString+ComposedCharacterSequences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ComposedCharacterSequences.h"; sourceTree = "<group>"; };
 		067F4835242E7A8C004D7928 /* NSFileManager+DirectoryContents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryContents.h"; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */,
 				06FEB6D224476C6D00AF526E /* NSAttributedString+Utilites.h */,
 				06FEB6D324476C6D00AF526E /* NSAttributedString+Utilites.m */,
+				0671D5192456147800743082 /* Tokeniser.h */,
 				067F4AD1242FDDF5004D7928 /* Prism.h */,
 				067F4AD2242FDDF6004D7928 /* Prism.m */,
 				06FEB6CC24448DFE00AF526E /* PrismUTIs.plist */,
@@ -323,6 +326,7 @@
 				0669B818242E3E5B00F4111E /* PrismCommon.h in Headers */,
 				06E1C310243C49060074ED18 /* JJRSObjectDescription.h in Headers */,
 				067F4846242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.h in Headers */,
+				0671D51A2456147800743082 /* Tokeniser.h in Headers */,
 				067F4841242E7A8D004D7928 /* UTType+ObjC.h in Headers */,
 				067F483F242E7A8D004D7928 /* NSFileManager+DirectoryContents.h in Headers */,
 				0660DB8824361C1A00002287 /* CGContext+RoundedRect.h in Headers */,
