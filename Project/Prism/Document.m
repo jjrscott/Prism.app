@@ -43,7 +43,7 @@
     
     self.availableLanguages = NSMutableDictionary.new;
     
-    for (Class<Tokeniser> tokenizer in @[Prism.class]) {
+    for (Class<Tokeniser> tokenizer in @[Prism.class, PlainTextTokeniser.class]) {
         for (NSString *language in [tokenizer availableLanguages]) {
             self.availableLanguages[language] = tokenizer;
         }

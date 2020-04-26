@@ -70,15 +70,10 @@
 
 + (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error
 {
-    NSString *prismLanguage = self.prismLanguages[language];
-    if ([prismLanguage isEqual:@"x-plain"]) {
-        return [self splitLines:input];
-    } else {
-        self.context[@"input"] = input;
-        self.context[@"language"] = prismLanguage;
-        JSValue *values = [self.context evaluateScript:@"Prism.tokenize(input, Prism.languages[language])"];
-        return [self clean:values.toArray];
-    }
+    self.context[@"input"] = input;
+    self.context[@"language"] = self.prismLanguages[language];
+    JSValue *values = [self.context evaluateScript:@"Prism.tokenize(input, Prism.languages[language])"];
+    return [self clean:values.toArray];
 }
 
 + (NSArray*)clean:(NSArray*)array {

@@ -25,7 +25,6 @@
 "public.make-source" = "makefile";
 "public.objective-c-source" = "objectivec";
 "public.perl-script" = "perl";
-"public.plain-text" = "x-plain";
 "public.python-script" = "python";
 "public.ruby-script" = "ruby";
 "public.shell-script" = "shell";

@@ -33,3 +33,4 @@ FOUNDATION_EXPORT const unsigned char PrismCommonVersionString[];
 #import "UTType+ObjC.h"
 #import "NSObject+Patch.h"
 #import "NSAttributedString+Utilites.h"
+#import "PlainTextTokeniser.h"
