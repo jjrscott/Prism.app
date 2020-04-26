@@ -41,9 +41,7 @@
     self.layoutManager = [LayoutManager new];
     [self.textView.textContainer replaceLayoutManager:self.layoutManager];
     
-    Prism *prism = [Prism new];
-    
-    NSArray *availableLanguages = [prism availableLanguages];
+    NSArray *availableLanguages = [Prism availableLanguages];
     
     self.availableLanguages = NSMutableSet.new;
     
@@ -154,9 +152,7 @@
                                                   encoding:NSUTF8StringEncoding
                                                      error:NULL];
     
-    Prism *prism = [Prism new];
-    
-    return [prism tokenizeString:content language:language error:NULL];
+    return [Prism tokenizeString:content language:language error:NULL];
 }
 
 - (IBAction)refreshContent:(id)sender {

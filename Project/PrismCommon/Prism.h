@@ -10,8 +10,8 @@
 
 @interface Prism : NSObject
 
-- (NSArray*)availableLanguages;
++ (NSArray*)availableLanguages;
 
-- (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error;
++ (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error;
 
 @end

@@ -13,20 +13,19 @@
 
 @interface Prism ()
 
-@property (nonatomic, strong) JSContext *context;
-@property (nonatomic, readonly) NSDictionary *prismLanguages;
+@property (nonatomic, class, readonly) JSContext *context;
+@property (nonatomic, class, readonly) NSDictionary *prismLanguages;
 
 @end
 
 @implementation Prism
 
-- (NSDictionary *)prismLanguages {
++ (NSDictionary *)prismLanguages {
     static NSDictionary *prismLanguages;
     static dispatch_once_t onceToken;
-    
     dispatch_once (&onceToken, ^{
-        NSURL *prismUTIsURL = [[NSBundle bundleForClass:self.class] URLForResource:@"PrismUTIs"
-                                                                     withExtension:@"plist"];
+        NSURL *prismUTIsURL = [[NSBundle bundleForClass:self] URLForResource:@"PrismUTIs"
+                                                               withExtension:@"plist"];
         
         prismLanguages = [NSDictionary dictionaryWithContentsOfURL:prismUTIsURL];
         
@@ -35,25 +34,27 @@
     return prismLanguages;
 }
 
++ (JSContext *)context {
+    static JSContext *context;
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        NSURL *prismURL = [[NSBundle bundleForClass:self.class] URLForResource:@"prism"
-                                                                 withExtension:@"js"];
-        _context = [JSContext new];
+    static dispatch_once_t onceToken;
+    dispatch_once (&onceToken, ^{
+        NSURL *prismURL = [[NSBundle bundleForClass:self] URLForResource:@"prism"
+                                                           withExtension:@"js"];
+        context = [JSContext new];
         NSString *prismSourcecode = [NSString stringWithContentsOfURL:prismURL encoding:NSUTF8StringEncoding error:NULL];
-        [_context evaluateScript:prismSourcecode withSourceURL:prismURL];
-    }
-    return self;
+        [context evaluateScript:prismSourcecode withSourceURL:prismURL];
+    });
+    return context;
+    
 }
 
-- (NSArray*)availableLanguages {
+
++ (NSArray*)availableLanguages {
     return self.prismLanguages.allKeys;
 }
 
--(NSArray*)splitLines:(NSString*)string {
++ (NSArray*)splitLines:(NSString*)string {
     NSMutableArray *tokens = [NSMutableArray new];
     
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([^\n]+\n?|[\n])" options:kNilOptions error:NULL];
@@ -67,20 +68,20 @@
     return tokens.copy;
 }
 
-- (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error
++ (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error
 {
     NSString *prismLanguage = self.prismLanguages[language];
     if ([prismLanguage isEqual:@"x-plain"]) {
         return [self splitLines:input];
     } else {
-        _context[@"input"] = input;
-        _context[@"language"] = prismLanguage;
-        JSValue *values = [_context evaluateScript:@"Prism.tokenize(input, Prism.languages[language])"];
+        self.context[@"input"] = input;
+        self.context[@"language"] = prismLanguage;
+        JSValue *values = [self.context evaluateScript:@"Prism.tokenize(input, Prism.languages[language])"];
         return [self clean:values.toArray];
     }
 }
 
--(NSArray*)clean:(NSArray*)array {
++ (NSArray*)clean:(NSArray*)array {
     NSMutableArray *buffer = [NSMutableArray new];
     for (id token in array)
     {
