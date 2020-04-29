@@ -6,6 +6,9 @@
   Copyright © 2020 John Scott. All rights reserved.
 */
 
+"com.apple.dt.document.scheme" = "Xcode Scheme";
+"com.apple.dt.interfacebuilder.document.storyboard" = "Interface Builder Storyboard";
+"com.apple.interfacebuilder.document.cocoa" = "Interface Builder Cocoa XIB";
 "com.netscape.javascript-source" = "JavaScript";
 "com.sun.java-source" = "Java source";
 "net.daringfireball.markdown" = "Markdown";

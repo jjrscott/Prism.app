@@ -16,6 +16,7 @@ FOUNDATION_EXPORT const unsigned char PrismCommonVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PrismCommon/PublicHeader.h>
 
+#import "Bulkhead.h"
 #import "CGContext+RoundedRect.h"
 #import "JJRSObjectDescription.h"
 #import "NSArray+LongestCommonSubsequence.h"

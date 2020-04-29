@@ -1,0 +1,4 @@
+{
+    "/CommandLineArguments\\[\\d+\\]$" : "array",
+    "/EnvironmentVariables\\[\\d+\\]$" : "array",
+}

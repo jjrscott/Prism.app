@@ -43,7 +43,7 @@
     
     self.availableLanguages = NSMutableDictionary.new;
     
-    for (Class<Tokeniser> tokenizer in @[Prism.class, PlainTextTokeniser.class]) {
+    for (Class<Tokeniser> tokenizer in @[Prism.class, PlainTextTokeniser.class, Bulkhead.class]) {
         for (NSString *language in [tokenizer availableLanguages]) {
             self.availableLanguages[language] = tokenizer;
         }
@@ -188,14 +188,21 @@
         content = [NSObject differenceWithLeft:content right:remoteContent];
     }
     
+    BOOL shouldForceDebug = self.availableLanguages[language] == Bulkhead.class;
+    
+    if (shouldForceDebug) self.debugButton.state = NSControlStateValueOn;
+    self.debugButton.enabled = !shouldForceDebug;
+    
     if (self.debugButton.state == NSControlStateValueOn) {
         buffer = [JJRSObjectDescription attributedDescriptionForObject:content];
-    } else {
+    } else if (content) {
         buffer = [self attributedStringFromValue:content action:nil];
         
         buffer = [self splitLines:buffer];
 //        buffer = [JJRSObjectDescription attributedDescriptionForObject:tokens];
         
+    } else {
+        buffer = NSAttributedString.new;
     }
     
     self.currentLanguage = language;

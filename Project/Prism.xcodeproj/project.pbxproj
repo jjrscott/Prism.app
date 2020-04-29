@@ -52,6 +52,11 @@
 		067F4B062434AA65004D7928 /* NSCoder+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F4B042434AA65004D7928 /* NSCoder+Property.m */; };
 		06A28F082434D64800026539 /* NSPopUpButton+RepresentedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 06A28F062434D64800026539 /* NSPopUpButton+RepresentedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06A28F092434D64800026539 /* NSPopUpButton+RepresentedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */; };
+		06BE0FF024561B45003567FD /* Bulkhead.h in Headers */ = {isa = PBXBuildFile; fileRef = 06BE0FEE24561B45003567FD /* Bulkhead.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06BE0FF124561B45003567FD /* Bulkhead.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BE0FEF24561B45003567FD /* Bulkhead.m */; };
+		06BE0FF324561C0F003567FD /* Bulkhead in Resources */ = {isa = PBXBuildFile; fileRef = 06BE0FF224561C0F003567FD /* Bulkhead */; };
+		06BE0FF624562F63003567FD /* NSJSONSerialization+File.h in Headers */ = {isa = PBXBuildFile; fileRef = 06BE0FF424562F63003567FD /* NSJSONSerialization+File.h */; };
+		06BE0FF724562F63003567FD /* NSJSONSerialization+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BE0FF524562F63003567FD /* NSJSONSerialization+File.m */; };
 		06E1C2DF243B3E2B0074ED18 /* NSJSONSerialization+String.h in Headers */ = {isa = PBXBuildFile; fileRef = 06E1C2DD243B3E2B0074ED18 /* NSJSONSerialization+String.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06E1C2E0243B3E2B0074ED18 /* NSJSONSerialization+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */; };
 		06E1C30F243C49060074ED18 /* JJRSObjectDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */; };
@@ -166,6 +171,11 @@
 		067F4B042434AA65004D7928 /* NSCoder+Property.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCoder+Property.m"; sourceTree = "<group>"; };
 		06A28F062434D64800026539 /* NSPopUpButton+RepresentedObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSPopUpButton+RepresentedObject.h"; sourceTree = "<group>"; };
 		06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSPopUpButton+RepresentedObject.m"; sourceTree = "<group>"; };
+		06BE0FEE24561B45003567FD /* Bulkhead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bulkhead.h; sourceTree = "<group>"; };
+		06BE0FEF24561B45003567FD /* Bulkhead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bulkhead.m; sourceTree = "<group>"; };
+		06BE0FF224561C0F003567FD /* Bulkhead */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bulkhead; sourceTree = "<group>"; };
+		06BE0FF424562F63003567FD /* NSJSONSerialization+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+File.h"; sourceTree = "<group>"; };
+		06BE0FF524562F63003567FD /* NSJSONSerialization+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+File.m"; sourceTree = "<group>"; };
 		06E1C2DD243B3E2B0074ED18 /* NSJSONSerialization+String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+String.h"; sourceTree = "<group>"; };
 		06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+String.m"; sourceTree = "<group>"; };
 		06E1C30D243C49060074ED18 /* JJRSObjectDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJRSObjectDescription.m; sourceTree = "<group>"; };
@@ -287,6 +297,8 @@
 				06A28F072434D64800026539 /* NSPopUpButton+RepresentedObject.m */,
 				0660DB8624361C1A00002287 /* CGContext+RoundedRect.h */,
 				0660DB8724361C1A00002287 /* CGContext+RoundedRect.m */,
+				06BE0FF424562F63003567FD /* NSJSONSerialization+File.h */,
+				06BE0FF524562F63003567FD /* NSJSONSerialization+File.m */,
 				06E1C2DD243B3E2B0074ED18 /* NSJSONSerialization+String.h */,
 				06E1C2DE243B3E2B0074ED18 /* NSJSONSerialization+String.m */,
 				06FEB6D224476C6D00AF526E /* NSAttributedString+Utilites.h */,
@@ -298,6 +310,9 @@
 				0671D51C2456175600743082 /* PlainTextTokeniser.m */,
 				06FEB6CC24448DFE00AF526E /* PrismUTIs.plist */,
 				067F4ACF242FDDBD004D7928 /* prism.js */,
+				06BE0FEE24561B45003567FD /* Bulkhead.h */,
+				06BE0FEF24561B45003567FD /* Bulkhead.m */,
+				06BE0FF224561C0F003567FD /* Bulkhead */,
 				0669B817242E3E5B00F4111E /* Info.plist */,
 				06E1C30C243C49060074ED18 /* JJRSObjectDescription */,
 			);
@@ -331,9 +346,11 @@
 			files = (
 				0669B818242E3E5B00F4111E /* PrismCommon.h in Headers */,
 				0671D51D2456175600743082 /* PlainTextTokeniser.h in Headers */,
+				06BE0FF624562F63003567FD /* NSJSONSerialization+File.h in Headers */,
 				06E1C310243C49060074ED18 /* JJRSObjectDescription.h in Headers */,
 				067F4846242E7A8D004D7928 /* NSArray+LongestCommonSubsequence.h in Headers */,
 				0671D51A2456147800743082 /* Tokeniser.h in Headers */,
+				06BE0FF024561B45003567FD /* Bulkhead.h in Headers */,
 				067F4841242E7A8D004D7928 /* UTType+ObjC.h in Headers */,
 				067F483F242E7A8D004D7928 /* NSFileManager+DirectoryContents.h in Headers */,
 				0660DB8824361C1A00002287 /* CGContext+RoundedRect.h in Headers */,
@@ -474,6 +491,7 @@
 			files = (
 				06FEB6CD24448DFE00AF526E /* PrismUTIs.plist in Resources */,
 				067F4AD0242FDDBD004D7928 /* prism.js in Resources */,
+				06BE0FF324561C0F003567FD /* Bulkhead in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,9 +523,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0671D51E2456175600743082 /* PlainTextTokeniser.m in Sources */,
+				06BE0FF724562F63003567FD /* NSJSONSerialization+File.m in Sources */,
 				06E1C30F243C49060074ED18 /* JJRSObjectDescription.m in Sources */,
 				067F4843242E7A8D004D7928 /* UTType+ObjC.m in Sources */,
 				06FEB6D524476C6D00AF526E /* NSAttributedString+Utilites.m in Sources */,
+				06BE0FF124561B45003567FD /* Bulkhead.m in Sources */,
 				067F4AE4243217ED004D7928 /* NSColor+XCColorTheme.m in Sources */,
 				067F4ADC2430B3FC004D7928 /* NSColor+Adjustment.m in Sources */,
 				067F4842242E7A8D004D7928 /* NSTask+Execution.m in Sources */,

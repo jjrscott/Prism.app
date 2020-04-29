@@ -99,12 +99,12 @@
     return [[self alloc] initWithLeft:left right:right];
 }
 
-#if DEBUG
-- (BOOL) isNSDictionary__
-{
-    return YES;
-}
-#endif
+//#if DEBUG
+//- (BOOL) isNSDictionary__
+//{
+//    return YES;
+//}
+//#endif
 
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level;
 {

@@ -1,0 +1,12 @@
+{
+    "/objects\\[\\d+\\]$" : "set",
+    "/subviews\\[\\d+\\]$" : "array",
+    "/connections\\[\\d+\\]$" : "set",
+    "/constraints\\[\\d+\\]$" : "set",
+    "/items\\[\\d+\\]$" : "array",
+    "/allowedToolbarItems\\[\\d+\\]$" : "array",
+    "/defaultToolbarItems\\[\\d+\\]$" : "array",
+    "/scenes\\[\\d+\\]$" : "array",
+    "/dependencies\\[\\d+\\]$" : "set",
+    "/resources\\[\\d+\\]$" : "array",
+}
