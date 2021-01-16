@@ -41,6 +41,11 @@
     return [Bulkhead.new tokenizeString:input language:language error:error];
 }
 
++ (NSArray *)tokenizeData:(NSData *)data language:(NSString *)language error:(NSError *__autoreleasing *)error {
+    NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return [self tokenizeString:text language:language error:error];
+}
+
 - (NSArray*)tokenizeString:(NSString *)input language:(NSString *)language error:(NSError **)error {
     NSXMLDocument *document = [[NSXMLDocument alloc] initWithXMLString:input
                                                                    options:NSXMLNodeOptionsNone

@@ -43,7 +43,7 @@
     
     self.availableLanguages = NSMutableDictionary.new;
     
-    for (Class<Tokeniser> tokenizer in @[Prism.class, PlainTextTokeniser.class, Bulkhead.class]) {
+    for (Class<Tokeniser> tokenizer in @[Prism.class, PlainTextTokeniser.class, Bulkhead.class, BinaryTokeniser.class]) {
         for (NSString *language in [tokenizer availableLanguages]) {
             self.availableLanguages[language] = tokenizer;
         }
@@ -151,11 +151,9 @@
 
 - (NSArray*)tokenizePath:(NSString *)path language:(NSString *)language error:(NSError **)error
 {
-    NSString *content = [NSString stringWithContentsOfFile:path
-                                                  encoding:NSUTF8StringEncoding
-                                                     error:NULL];
+    NSData *content = [NSData dataWithContentsOfFile:path options:kNilOptions error:error];
     
-    return [self.availableLanguages[language] tokenizeString:content language:language error:NULL];
+    return [self.availableLanguages[language] tokenizeData:content language:language error:NULL];
 }
 
 - (IBAction)refreshContent:(id)sender {

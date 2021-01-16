@@ -34,4 +34,5 @@ FOUNDATION_EXPORT const unsigned char PrismCommonVersionString[];
 #import "PlainTextTokeniser.h"
 #import "Prism.h"
 #import "PrismCommonUtilities.h"
+#import "BinaryTokeniser.h"
 #import "UTType+ObjC.h"

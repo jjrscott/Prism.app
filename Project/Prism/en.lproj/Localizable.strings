@@ -29,6 +29,7 @@
 "public.objective-c-source" = "Objective-C source";
 "public.perl-script" = "Perl script";
 "public.plain-text" = "Plain text";
+"public.data" = "Byte stream";
 "public.python-script" = "Python script";
 "public.ruby-script" = "Ruby source";
 "public.shell-script" = "Shell script";
