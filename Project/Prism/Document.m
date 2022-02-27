@@ -253,6 +253,16 @@
         return [NSColor colorFromXCColorThemeString:@"0.572549 0.572549 0.572549 1"];
     } else if ([type isEqual:@"constant"]) {
         return [NSColor colorFromXCColorThemeString:@"0.572549 0.572549 0.572549 1"];
+    } else if ([type isEqual:@"deleted"]) {
+        return [NSColor systemRedColor];
+    } else if ([type isEqual:@"inserted"]) {
+        return [NSColor systemGreenColor];
+    } else if ([type isEqual:@"deleted-sign"]) {
+        return [NSColor systemRedColor];
+    } else if ([type isEqual:@"inserted-sign"]) {
+        return [NSColor systemGreenColor];
+    } else if ([type isEqual:@"unchanged"]) {
+        return [NSColor systemGrayColor];
     }
     
     static NSMutableSet *unknownTypes = nil;
@@ -404,3 +414,4 @@
 }
 
 @end
+                                                                                                                                                                

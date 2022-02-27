@@ -27,6 +27,7 @@
 "public.json" = "JSON";
 "public.make-source" = "Makefile";
 "public.objective-c-source" = "Objective-C source";
+"public.patch-file" = "Patch file";
 "public.perl-script" = "Perl script";
 "public.plain-text" = "Plain text";
 "public.data" = "Byte stream";

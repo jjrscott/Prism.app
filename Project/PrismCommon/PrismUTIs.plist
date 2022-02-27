@@ -24,6 +24,7 @@
 "public.json" = "json";
 "public.make-source" = "makefile";
 "public.objective-c-source" = "objectivec";
+"public.patch-file" = "diff";
 "public.perl-script" = "perl";
 "public.python-script" = "python";
 "public.ruby-script" = "ruby";
